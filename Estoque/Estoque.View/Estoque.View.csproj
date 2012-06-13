@@ -53,10 +53,8 @@
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.VisualBasic.Compatibility" />
-    <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
     <Reference Include="System.DirectoryServices" />
@@ -73,6 +71,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmConfiguracao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConfiguracao.Designer.cs">
+      <DependentUpon>frmConfiguracao.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPrincipal.cs">
       <SubType>Form</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -83,6 +87,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmConfiguracao.resx">
+      <DependentUpon>frmConfiguracao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -97,7 +104,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -129,6 +135,20 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Estoque.Controller\Estoque.Controller.csproj">
+      <Project>{238A15F6-7EB9-42CE-8258-C7B630170139}</Project>
+      <Name>Estoque.Controller</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Estoque.Dados\Estoque.Dados.csproj">
+      <Project>{B7289106-A4F6-417C-860D-BDE1C8D7C1C6}</Project>
+      <Name>Estoque.Dados</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Estoque.Module\Estoque.Module.csproj">
+      <Project>{0084FB23-1598-412F-BAA4-5ECCF73169B1}</Project>
+      <Name>Estoque.Module</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
