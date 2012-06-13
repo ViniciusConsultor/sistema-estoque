@@ -15,5 +15,14 @@ namespace Estoque.View
         {
             InitializeComponent();
         }
+
+        private void configuraçõesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmConfiguracao config = new frmConfiguracao();
+
+            config.MdiParent = this;
+
+            config.Show();
+        }
     }
 }
