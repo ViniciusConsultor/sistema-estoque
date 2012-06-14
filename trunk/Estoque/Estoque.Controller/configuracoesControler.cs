@@ -21,46 +21,53 @@ namespace Estoque.Controller
 
         #region Métodos
 
-        public bool servidorSQL(Configuracoes config)
-        {
+        //public bool salvaConf(Configuracoes config)
+        //{
 
-            #region Declaração
+        //    #region Declaração
+        //    dataBase data = null;
+        //    #endregion
 
-            #endregion
+        //    #region Implementação
 
-            #region Implementação
+        //    data = new dataBase();
+        //    return data.salvaConfiguracoes(config);
 
-            return true;
-            #endregion
-        }
+        //    #endregion
+        //}
 
-        public SqlConnection carregaConfiguracao()
-        {
+        //public SqlConnection carregaConfiguracao(Configuracoes config)
+        //{
 
-            #region Declaração
+        //    #region Declaração
 
-            dataBase data = null;
-            #endregion
+        //    dataBase data = null;
+        //    #endregion
 
-            #region Implementação
+        //    #region Implementação
 
-            data = new dataBase();
+        //    data = new dataBase();
 
-            return data.conectar();
-            #endregion
-        }
+        //    return data.conectar(config);
+        //    #endregion
+        //}
 
-        public Configuracoes carregaString()
-        {
+        //public Configuracoes carregaString()
+        //{
 
-            #region Declaração
+        //    #region Declaração
+        //    dataBase data = null;
+        //    Configuracoes config = null;
+        //    #endregion
 
-            #endregion
+        //    #region Implementação
+        //    config = new Configuracoes();
 
-            #region Implementação
+        //    data = new dataBase();
 
-            #endregion
-        }
+        //    return data.iserirConexao();
+        //    #endregion
+        //}
 
         #endregion
     }

@@ -10,17 +10,47 @@ namespace Estoque.Module
 
         #region Propriedades
 
-        public string servidor { get; set; }
+        private static string servidor;
 
-        public string database { get; set; }
+        public string Servidor
+        {
+            get { return servidor; }
+            set { servidor = value; }
+        }
 
-        public string user { get; set; }
+        private static string database;
 
-        public string senha { get; set; }
+        public string Database
+        {
+            get { return database; }
+            set { database = value; }
+        }
 
-        public bool conectado { get; set; }
+        private static string user;
 
-        public string conectionString { get; set; }
+        public string User
+        {
+            get { return user; }
+            set { user = value; }
+        }
+
+        private static string senha;
+
+        public string Senha
+        {
+            get { return senha; }
+            set { senha = value; }
+        }
+
+        public bool conectado;
+
+        private string conectionString;
+
+        public string ConectionString
+        {
+            get { return conectionString; }
+            set { conectionString = value; }
+        }
 
         
        
