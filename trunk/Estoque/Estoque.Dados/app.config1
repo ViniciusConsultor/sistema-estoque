@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<configuration>
+  <appSettings>
+    <add key="servidor" value="GSJP01PD011\SQLEXPRESS"/>
+    <add key="database" value="estoque"/>
+    <add key="user" value="estoque"/>
+    <add key="senha" value="estoque"/>
+    <add key="meta" value="Data Source=GSJP01PD011\SQLEXPRESS;Initial Catalog=estoque;User ID=estoque"/>
+  </appSettings>
+<configSections>
+    <sectionGroup name="userSettings" type="System.Configuration.UserSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" >
+        <section name="Estoque.Dados.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" allowExeDefinition="MachineToLocalUser" requirePermission="false" />
+    </sectionGroup>
+</configSections>
+<startup><supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.0"/></startup><userSettings>
+        <Estoque.Dados.Properties.Settings>
+            <setting name="Setting" serializeAs="String">
+                <value>qualquer</value>
+            </setting>
+        </Estoque.Dados.Properties.Settings>
+    </userSettings>
+  <connectionStrings>
+    <add connectionString="meta" name="Data Source=GSJP01PD011\SQLEXPRESS;Initial Catalog=estoque;User ID=estoque"/>
+  </connectionStrings>
+</configuration>
