@@ -21,44 +21,120 @@ namespace Estoque.View
         }
 
         Configuration configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+        Configuracoes config = null;
+
         private void frmConfiguracao_Load(object sender, EventArgs e)
         {
 
             #region Declaração
 
-            configuracoesControler configControl = null;
+            dataBase data = null;
             string conexao = string.Empty;
             SqlConnection conn = null;
-            Configuracoes config = null;
+            
 
             #endregion
 
             #region Implementação
 
-            configControl = new configuracoesControler();
+            data = new dataBase();
 
-            tbServidor.Text = config.servidor;
-            tbData.Text = config.database;
-            tbUser.Text = config.user;
-            tbSenha.Text = config.senha;
+            
 
-            lbConString.Text = config.conectionString;
+            config = data.iserirConexao();
 
-            conn = configControl.carregaConfiguracao();
+            tbServidor.Text = config.Servidor;
+            tbData.Text = config.Database;
+            tbUser.Text = config.User;
+            tbSenha.Text = config.Senha;
+
+            
+
+            
+            #endregion
+        }
+
+        
+
+        private void btnTeste_Click(object sender, EventArgs e)
+        {
+            #region Declaração
+
+            Configuracoes config = null;
+
+            dataBase data = null;
+            SqlConnection conn = null;
+
+            #endregion
+
+            #region Implementação
+
+            data = new dataBase();
+
+            config = data.iserirConexao();
+
+            conn = data.conectar(config);
+
+            lbConString.Text = config.ConectionString;
 
             if (conn.State == ConnectionState.Open)
             {
                 lbTeste.Text = "Conectado com Sucesso!";
                 lbTeste.ForeColor = Color.Blue;
+
             }
             else
             {
                 lbTeste.Text = "Não foi possível conectar ao Banco de Dados";
                 lbTeste.ForeColor = Color.Red;
+
+                config = mudaConfigurações();
+
+                conn = data.conectar(config);
+
+                if (conn.State == ConnectionState.Open)
+                {
+                    lbTeste.Text = "Conectado com Sucesso!";
+                    lbTeste.ForeColor = Color.Blue;
+                    if (data.salvaConfiguracoes(config))
+                    {
+                        MessageBox.Show("Salvo com Sucesso", "Sucesso", MessageBoxButtons.OK);
+                    }
+
+                }
+                else
+                {
+                    lbTeste.Text = "Não foi possível conectar ao Banco de Dados";
+                    lbTeste.ForeColor = Color.Red;
+                }
             }
+
             #endregion
         }
 
+        public Configuracoes mudaConfigurações()
+        {
+            SqlConnectionStringBuilder myCSB = new SqlConnectionStringBuilder();
+            ConnectionStringsSection csSection = new ConnectionStringsSection();
+
+            #region Implementação
+
+            config.Servidor = tbServidor.Text;
+            config.Database = tbData.Text;
+            config.User = tbData.Text;
+            config.Senha = tbSenha.Text;
+
+            myCSB.DataSource = config.Servidor;
+            myCSB.InitialCatalog = config.Database;
+            myCSB.UserID = config.User;
+            myCSB.Password = config.Senha;
+
+            config.ConectionString = myCSB.ConnectionString;
+
+            return config;
+
+            #endregion
+        }
         
     }
 }

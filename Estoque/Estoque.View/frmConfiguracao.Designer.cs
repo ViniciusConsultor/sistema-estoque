@@ -39,7 +39,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tbData = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnSalva = new System.Windows.Forms.Button();
             this.btnBackup = new System.Windows.Forms.Button();
             this.tbServidor = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -58,7 +57,6 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.tbData);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.btnSalva);
             this.groupBox1.Controls.Add(this.btnBackup);
             this.groupBox1.Controls.Add(this.tbServidor);
             this.groupBox1.Controls.Add(this.label1);
@@ -80,7 +78,7 @@
             // lbTeste
             // 
             this.lbTeste.AutoSize = true;
-            this.lbTeste.Location = new System.Drawing.Point(367, 268);
+            this.lbTeste.Location = new System.Drawing.Point(206, 268);
             this.lbTeste.Name = "lbTeste";
             this.lbTeste.Size = new System.Drawing.Size(92, 15);
             this.lbTeste.TabIndex = 12;
@@ -97,12 +95,13 @@
             // 
             // btnTeste
             // 
-            this.btnTeste.Location = new System.Drawing.Point(233, 260);
+            this.btnTeste.Location = new System.Drawing.Point(35, 260);
             this.btnTeste.Name = "btnTeste";
             this.btnTeste.Size = new System.Drawing.Size(87, 30);
             this.btnTeste.TabIndex = 10;
             this.btnTeste.Text = "Testar";
             this.btnTeste.UseVisualStyleBackColor = true;
+            this.btnTeste.Click += new System.EventHandler(this.btnTeste_Click);
             // 
             // tbSenha
             // 
@@ -152,18 +151,9 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Data Base";
             // 
-            // btnSalva
-            // 
-            this.btnSalva.Location = new System.Drawing.Point(69, 260);
-            this.btnSalva.Name = "btnSalva";
-            this.btnSalva.Size = new System.Drawing.Size(80, 30);
-            this.btnSalva.TabIndex = 3;
-            this.btnSalva.Text = "Salvar";
-            this.btnSalva.UseVisualStyleBackColor = true;
-            // 
             // btnBackup
             // 
-            this.btnBackup.Location = new System.Drawing.Point(412, 85);
+            this.btnBackup.Location = new System.Drawing.Point(388, 100);
             this.btnBackup.Name = "btnBackup";
             this.btnBackup.Size = new System.Drawing.Size(80, 30);
             this.btnBackup.TabIndex = 2;
@@ -209,7 +199,6 @@
         private System.Windows.Forms.Button btnBackup;
         private System.Windows.Forms.TextBox tbServidor;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnSalva;
         private System.Windows.Forms.TextBox tbSenha;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbUser;
