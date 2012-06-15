@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
-using System.Configuration;
 using Estoque.Module;
 
 namespace Estoque.Dados
@@ -32,9 +32,12 @@ namespace Estoque.Dados
 
             Configuration conf = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             return true;
+
+
             #endregion
         }
 
+        
         #endregion
 
     }

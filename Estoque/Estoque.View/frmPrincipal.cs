@@ -24,5 +24,10 @@ namespace Estoque.View
 
             config.Show();
         }
+
+        private void cadastrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
