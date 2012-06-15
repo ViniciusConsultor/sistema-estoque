@@ -52,7 +52,7 @@ namespace Estoque.Controller
         //    #endregion
         //}
 
-        //public Configuracoes carregaString()
+        //public void carregaString()
         //{
 
         //    #region Declaração
