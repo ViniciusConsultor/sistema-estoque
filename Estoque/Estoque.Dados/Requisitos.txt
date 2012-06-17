@@ -1,0 +1,29 @@
+﻿FOrnecedores Banco:
+
+
+
+Fornecedores Sistema:
+
+Nome - 50
+Empresa - 100
+Endereço Rua - 50
+	  Numero - 6
+	  Cidade - 40
+	  Estado - 20
+	  CEP	 - 8
+Fone Comercial - 10
+	 Celular   - 10
+Marcas Representantes - 200
+
+
+Produtos Banco:
+
+
+Produtos Sistema:
+
+Id Produto - 6
+Nome	   - 100
+Categoria  - 15
+Quantidade - 4
+Valor	   - 6
+
