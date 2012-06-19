@@ -39,11 +39,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbCodigoPro = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnSalvar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnSalvar);
             this.groupBox1.Controls.Add(this.mtbValor);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.tbQuantidade);
@@ -146,6 +148,16 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Código";
             // 
+            // btnSalvar
+            // 
+            this.btnSalvar.Location = new System.Drawing.Point(414, 148);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(75, 28);
+            this.btnSalvar.TabIndex = 10;
+            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            // 
             // frmCadProdutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -182,5 +194,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.MaskedTextBox mtbValor;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnSalvar;
     }
 }
