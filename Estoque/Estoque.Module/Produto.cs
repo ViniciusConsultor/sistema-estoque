@@ -10,11 +10,11 @@ namespace Estoque.Module
 
         #region Atributos
 
-        private string _categoria;
         private int _id;
         private string _nome;
         private string _quantidade;
         private string _valor;
+        private List<string> _categoria;
         #endregion
 
         #region Construtor
@@ -27,7 +27,7 @@ namespace Estoque.Module
 
         #region Properties
 
-        public string Categoria
+        public List<string> Categoria
         {
             get { return _categoria; }
             set { _categoria = value; }
