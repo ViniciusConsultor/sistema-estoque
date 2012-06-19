@@ -11,6 +11,13 @@ namespace Estoque.Module
         private string _nome;
         private string _empresa;
         private string _rua;
+        private string _numCasa;
+        private string _cidade;
+        private string _estado;
+        private string _cEP;
+        private string _foneComercial;
+        private string _celular;
+        private string _marcasRep;
 
         #region Construtor
         public Fornecedor()
@@ -49,6 +56,47 @@ namespace Estoque.Module
             set { _rua = value; }
         }
 
+        public string NumCasa
+        {
+            get { return _numCasa; }
+            set { _numCasa = value; }
+        }
+
+        public string Cidade
+        {
+            get { return _cidade; }
+            set { _cidade = value; }
+        }
+
+        public string Estado
+        {
+            get { return _estado; }
+            set { _estado = value; }
+        }
+
+        public string CEP
+        {
+            get { return _cEP; }
+            set { _cEP = value; }
+        }
+
+        public string FoneComercial
+        {
+            get { return _foneComercial; }
+            set { _foneComercial = value; }
+        }
+
+        public string Celular
+        {
+            get { return _celular; }
+            set { _celular = value; }
+        }
+
+        public string MarcasRep
+        {
+            get { return _marcasRep; }
+            set { _marcasRep = value; }
+        }
 
         #endregion
 
