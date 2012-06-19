@@ -68,7 +68,7 @@
     <Compile Include="funcionarioControler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="prudutosControler.cs" />
+    <Compile Include="produtosControler.cs" />
     <Compile Include="usuarioControler.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

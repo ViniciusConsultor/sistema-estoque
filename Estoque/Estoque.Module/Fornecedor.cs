@@ -7,6 +7,16 @@ namespace Estoque.Module
 { 
     public class Fornecedor
     {
+        
+
+        #region Construtor
+        public Fornecedor()
+        {
+        }
+        #endregion
+
+        #region Atributos
+
         private int _idFornecedor;
         private string _nome;
         private string _empresa;
@@ -18,15 +28,6 @@ namespace Estoque.Module
         private string _foneComercial;
         private string _celular;
         private string _marcasRep;
-
-        #region Construtor
-        public Fornecedor()
-        {
-        }
-        #endregion
-
-        #region Atributos
-
 
         #endregion
 

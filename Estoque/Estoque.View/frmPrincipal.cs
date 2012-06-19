@@ -27,7 +27,11 @@ namespace Estoque.View
 
         private void cadastrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
+          frmCadProdutos cadPro = new frmCadProdutos();
 
+          cadPro.MdiParent = this;
+
+          cadPro.Show();
         }
     }
 }
