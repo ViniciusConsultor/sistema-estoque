@@ -30,7 +30,7 @@ namespace Estoque.Dados
     /// </summary>
     /// <param name="config"> Configuração da ConnectionString</param>
     /// <returns>List<string> Categoria</returns>
-    public List<string> carregaCatProd(Configuracoes config)
+    public List<Categoria> carregaCatProd(Configuracoes config)
     {
 
       #region Declaração
@@ -42,12 +42,15 @@ namespace Estoque.Dados
       #endregion
 
       #region Implementação
-      Categorias = new List<string>();
-
+      Categoria categoria = null;
+      List<Categoria> listCategoria = null;
       try
       {
         conn = new SqlConnection(config.ConectionString);
         cmd = new SqlCommand();
+        
+        listCategoria = new List<Categoria>();
+
         SqlDataReader dr = null;
         sql = "SELECT idCategoria, categoria FROM dbo.categoria";
 
@@ -60,18 +63,20 @@ namespace Estoque.Dados
 
         dr = cmd.ExecuteReader();
 
-        int i = 0;
         while (dr.Read())
         {
-          Categorias.Add(dr[i].ToString().Trim());
-          i++;
+          categoria = new Categoria();
+          categoria.IdCategoria = int.Parse(dr["idCategoria"].ToString().Trim());
+          categoria.CategoriaP = dr["categoria"].ToString().Trim();
+
+          listCategoria.Add(categoria);
         }
 
-        return Categorias;
+        return listCategoria;
       }
       catch (Exception ex)
       {
-        return Categorias;
+        return listCategoria;
       }
       finally
       {
@@ -81,6 +86,45 @@ namespace Estoque.Dados
 
       #endregion
 
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="produto">Objeto Produto</param>
+    /// <returns>true ou flase</returns>
+    public bool cadastraProduto(Produto produto)
+    {
+
+      #region Declaração
+
+      string sql = string.Empty;
+      SqlConnection conn = null;
+      SqlCommand cmd = null;
+
+      #endregion
+
+      #region Implementação
+
+      conn = new SqlConnection();
+      cmd = new SqlCommand();
+
+      try
+      {
+
+        sql = "";
+
+
+      }
+      catch (Exception ex)
+      {
+        
+      }
+      finally
+      {
+      }
+
+      #endregion
 
     }
     #endregion

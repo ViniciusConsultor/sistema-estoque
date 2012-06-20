@@ -14,7 +14,8 @@ namespace Estoque.Module
         private string _nome;
         private string _quantidade;
         private string _valor;
-        private List<string> _categoria;
+        private string _categoria;
+        private int _idCategoria;
         #endregion
 
         #region Construtor
@@ -27,7 +28,7 @@ namespace Estoque.Module
 
         #region Properties
 
-        public List<string> Categoria
+        public string Categoria
         {
             get { return _categoria; }
             set { _categoria = value; }
@@ -55,6 +56,12 @@ namespace Estoque.Module
         {
             get { return _valor; }
             set { _valor = value; }
+        }
+
+        public int IdCategoria
+        {
+          get { return _idCategoria; }
+          set { _idCategoria = value; }
         }
         #endregion
 
