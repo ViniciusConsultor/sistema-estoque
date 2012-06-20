@@ -34,7 +34,7 @@ namespace Estoque.View
 
       produtosControler produtos = null;
       dataBase db = null;
-      List<string> categoriasDB = null;
+      List<Categoria> categoriasDB = null;
 
       #endregion
 
@@ -43,22 +43,42 @@ namespace Estoque.View
       config = new Configuracoes();
       db = new dataBase();
       produtos = new produtosControler();
-      categoriasDB = new List<string>();
+      categoriasDB = new List<Categoria>();
 
       config = db.iserirConexao();
 
       categoriasDB = produtos.categoriaBanco(config);
 
       cbCategorias.DataSource = categoriasDB;
+
+      #endregion
+    }
+
+
+    private void btnSalvar_Click(object sender, EventArgs e)
+    {
+
+      #region Declaração
+      Produto produto = null;
+      produtosControler produtoControl = null;
+      string valor = string.Empty;
+      #endregion
+
+      #region Implementação
+
+      produto = new Produto();
+
+      produtoControl = new produtosControler();
+
+      valor = mtbValor.Text.Replace(".", "").Replace("R$", "").Trim();
+      produto.Nome = tbNomePro.Text;
+      produto.IdCategoria = cbCategorias.SelectedIndex;
+      produto.Quantidade = tbQuantidade.Text;
+      produto.Valor = valor;
       #endregion
     }
 
     #endregion
-
-    private void btnSalvar_Click(object sender, EventArgs e)
-    {
-      
-    }
   }
 
 }

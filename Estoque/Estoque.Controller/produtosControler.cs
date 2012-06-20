@@ -21,7 +21,7 @@ namespace Estoque.Controller
 
       #region Métodos
 
-      public List<string> categoriaBanco(Configuracoes config)
+      public List<Categoria> categoriaBanco(Configuracoes config)
       {
 
         #region Declaração
