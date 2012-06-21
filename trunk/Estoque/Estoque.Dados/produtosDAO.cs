@@ -93,7 +93,7 @@ namespace Estoque.Dados
     /// </summary>
     /// <param name="produto">Objeto Produto</param>
     /// <returns>true ou flase</returns>
-    public bool cadastraProduto(Produto produto)
+    public bool cadastraProduto(Produto produto, Configuracoes config)
     {
 
       #region Declaração
@@ -106,22 +106,30 @@ namespace Estoque.Dados
 
       #region Implementação
 
-      conn = new SqlConnection();
+      conn = new SqlConnection(config.ConectionString);
       cmd = new SqlCommand();
+      cmd.CommandType = CommandType.Text;
 
       try
       {
 
         sql = "";
 
+        cmd.CommandText = sql;
+
+        cmd.ExecuteNonQuery();
+
+        return true;
 
       }
       catch (Exception ex)
       {
-        
+        return false;
       }
       finally
       {
+        if (conn.State == ConnectionState.Open)
+          conn.Close();
       }
 
       #endregion
