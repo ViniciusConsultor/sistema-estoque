@@ -18,6 +18,13 @@ Marcas Representantes - 200
 
 Produtos Banco:
 
+idProduto - 6
+nome - 100
+idCategoria - 2
+quantidade 4
+valor - 6
+cadastradoPor - 4
+cadastradoEm - 8
 
 Produtos Sistema:
 
@@ -27,3 +34,23 @@ Categoria  - 15
 Quantidade - 4
 Valor	   - 6
 
+Funionarios Sistemas:
+
+Nome - 50
+usuario - 30
+senha - 10
+perfil - 20
+email - 50
+CPF - 11
+RG - 10
+CTPS - 
+Serie - 
+ativo 2
+Telefone - 10
+celular - 10
+rua - 50
+numeroRua - 5
+Cidade - 5
+Estado - 3
+CadastradoEm - 8
+Cargo - 20

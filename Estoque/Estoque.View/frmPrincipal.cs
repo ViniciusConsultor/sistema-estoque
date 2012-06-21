@@ -33,5 +33,14 @@ namespace Estoque.View
 
           cadPro.Show();
         }
+
+        private void cadastrarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+          frmCadFuncionario funcionario = new frmCadFuncionario();
+
+          funcionario.MdiParent = this;
+
+          funcionario.Show();
+        }
     }
 }

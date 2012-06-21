@@ -164,18 +164,18 @@
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(794, 571);
+      this.ClientSize = new System.Drawing.Size(781, 306);
       this.Controls.Add(this.groupBox1);
       this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
       this.KeyPreview = true;
+      this.MaximizeBox = false;
       this.MinimizeBox = false;
       this.Name = "frmCadProdutos";
       this.ShowIcon = false;
       this.ShowInTaskbar = false;
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "Cadastro de Produtos";
-      this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
       this.Load += new System.EventHandler(this.frmCadProdutos_Load);
       this.groupBox1.ResumeLayout(false);
       this.groupBox1.PerformLayout();
