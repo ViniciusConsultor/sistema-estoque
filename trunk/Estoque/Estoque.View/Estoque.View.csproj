@@ -52,8 +52,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.VisualBasic" />
-    <Reference Include="Microsoft.VisualBasic.Compatibility" />
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
@@ -61,8 +59,6 @@
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Messaging" />
     <Reference Include="System.ServiceProcess" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
@@ -123,6 +119,12 @@
     <Compile Include="frmCadProdutos.Designer.cs">
       <DependentUpon>frmCadProdutos.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRestoreDataBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRestoreDataBase.Designer.cs">
+      <DependentUpon>frmRestoreDataBase.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmVendas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCadProdutos.resx">
       <DependentUpon>frmCadProdutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRestoreDataBase.resx">
+      <DependentUpon>frmRestoreDataBase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVendas.resx">
       <DependentUpon>frmVendas.cs</DependentUpon>
