@@ -20,10 +20,14 @@ namespace Estoque.Module
     private List<string> _databases;
     private Server _sqlServer;
     private string _fileName;
+    private BackupDevice _bkpDevice;
+    private List<string> _arquivosRestore;
+    private string _path;
 
     #endregion
 
     #region Propriedades
+
     /// <summary>
     /// Servidor Sql
     /// </summary>
@@ -105,6 +109,23 @@ namespace Estoque.Module
       set { _fileName = value; }
     }
 
+    public BackupDevice BkpDevice
+    {
+      get { return _bkpDevice; }
+      set { _bkpDevice = value; }
+    }
+
+    public List<string> ArquivosRestore
+    {
+      get { return _arquivosRestore; }
+      set { _arquivosRestore = value; }
+    }
+
+    public string Path
+    {
+      get { return _path; }
+      set { _path = value; }
+    }
     #endregion
 
     #region Construtor
