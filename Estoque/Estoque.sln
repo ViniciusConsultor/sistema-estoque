@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Estoque.View", "Estoque.Vie
 		{238A15F6-7EB9-42CE-8258-C7B630170139} = {238A15F6-7EB9-42CE-8258-C7B630170139}
 	EndProjectSection
 EndProject
+Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "Estoque.Modelagem", "Estoque.Modelagem\Estoque.Modelagem.modelproj", "{654FED3C-866C-45E7-974B-A537F72658EA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -70,6 +72,16 @@ Global
 		{CF77D619-B95F-46FC-9784-DB1BD5C9E67D}.Release|Mixed Platforms.Build.0 = Release|x86
 		{CF77D619-B95F-46FC-9784-DB1BD5C9E67D}.Release|x86.ActiveCfg = Release|x86
 		{CF77D619-B95F-46FC-9784-DB1BD5C9E67D}.Release|x86.Build.0 = Release|x86
+		{654FED3C-866C-45E7-974B-A537F72658EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{654FED3C-866C-45E7-974B-A537F72658EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{654FED3C-866C-45E7-974B-A537F72658EA}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{654FED3C-866C-45E7-974B-A537F72658EA}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{654FED3C-866C-45E7-974B-A537F72658EA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{654FED3C-866C-45E7-974B-A537F72658EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{654FED3C-866C-45E7-974B-A537F72658EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{654FED3C-866C-45E7-974B-A537F72658EA}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{654FED3C-866C-45E7-974B-A537F72658EA}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{654FED3C-866C-45E7-974B-A537F72658EA}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
