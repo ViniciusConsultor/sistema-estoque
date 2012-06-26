@@ -7,7 +7,10 @@ using Microsoft.SqlServer.Management.Smo;
 using Microsoft.SqlServer.Management.Common;
 using Microsoft.SqlServer.Server;
 using System.Data;
+using System.Data.SqlClient;
+using System.IO;
 using Estoque.Module;
+//using SQLDMO;
 
 namespace Estoque.Dados
 {
@@ -90,39 +93,64 @@ namespace Estoque.Dados
 
           config.SqlServer = server;
 
-          foreach (Database  dbserver in server.Databases)
+          config.Databases = new List<string>();
+
+          foreach ( Microsoft.SqlServer.Management.Smo.Database  dbserver in server.Databases)
           {
-            config.Servidores.Add(dbserver.Name);
+            config.Databases.Add(dbserver.Name);
           }
-          #endregion
+          
           return config;
+
+          #endregion
+
         }
 
         public bool BackupDataBase(Configuracoes config)
         {
 
           #region Declaração
+
           if (config.SqlServer != null)
           {
 
             Backup bkpDataBase = null;
-            BackupDeviceItem bkpDevItem = null;
-            DateTime data = DateTime.Now;
+            string data = DateTime.Now.Date.ToString("dd-mm-yyyy");
+            BackupDeviceItem bkpDeviceItem = null;
             string fileName = string.Empty;
+            string path = string.Empty;
           #endregion
 
-            #region Implementação
+          #region Implementação
+
+            fileName = "Backup_" + data + ".bak";
 
             bkpDataBase = new Backup();
-            bkpDevItem = new BackupDeviceItem();
+            bkpDeviceItem = new BackupDeviceItem();
 
             bkpDataBase.Action = BackupActionType.Database;
             bkpDataBase.Database = config.Database;
-            fileName = "Backup_" + data + ".bak";
 
-            bkpDevItem.Name = fileName;
+            path = "C:\\Sistema\\Backup\\";
 
-            bkpDataBase.Devices.Add(bkpDevItem);
+            if (!Directory.Exists(path))
+            {
+              Directory.CreateDirectory(path);
+            }
+
+            path = path + fileName.Replace(" ","_").Replace("/","_").Replace(":","_");
+
+            if (!File.Exists(path))
+            {
+              File.CreateText(path);
+            }
+
+            bkpDataBase.Incremental = false;
+            bkpDataBase.BackupSetName = fileName;
+
+            bkpDataBase.Checksum = true;
+            bkpDataBase.Devices.Add(new BackupDeviceItem(path, DeviceType.File));
+
             bkpDataBase.SqlBackup(config.SqlServer);
 
             return true;
@@ -133,6 +161,7 @@ namespace Estoque.Dados
 
 
           #endregion
+
         }
 
         public bool RestoreDataBase(Configuracoes config)
@@ -142,12 +171,77 @@ namespace Estoque.Dados
 
           Restore rstDataBase = null;
           BackupDeviceItem bkpDevice = null;
+          
+          #endregion
+          
+          #region Implementação
+          var sc = new SqlConnection("Data Source=GSJP01PD011\\SQLEXPRESS;Initial Catalog=master;User ID=estoque;Password=estoque");
+
+          String sql = @"USE [master]; RESTORE DATABASE "+config.Database +" FROM DISK = '"+config.Path+"' WITH REPLACE;";
+
+          var cmd = new SqlCommand(sql, sc);
+          sc.Open();
+
+          cmd.ExecuteNonQuery();
+          //var serverConn = new ServerConnection(sc);
+          //var server = new Server(serverConn);
+          //server.ConnectionContext.DatabaseName = "master";
+          
+
+          //Database db = server.Databases[config.Database];
+          //var restore = new Restore();
+
+          //server.KillAllProcesses(config.Database);
+          //db.Alter(TerminationClause.RollbackTransactionsImmediately);
+          //restore.Action = RestoreActionType.Database;
+          
+ 
+          //restore.Database = config.Database;
+          //restore.ReplaceDatabase = true;
+          //restore.Devices.AddDevice(config.Path, DeviceType.File);
+          //restore.ReplaceDatabase = true;
+          //restore.NoRecovery = false;
+
+          //restore.SqlRestore(server);
+
+          return true;
+          #endregion
+        }
+
+        public Configuracoes ListaArquivos(Configuracoes config)
+        {
+
+          #region Declaração
+
+          DirectoryInfo dirInfo = null;
+          FileInfo[] arquivos = null;
+          string path = string.Empty;
 
           #endregion
 
           #region Implementação
-          return true;
+
+          path = "C:\\Sistema\\Backup\\";
+
+          dirInfo = new DirectoryInfo(path);
+          config.Path = path;
+
+          arquivos = dirInfo.GetFiles("*.bak");
+
+          if (arquivos.Length > 0)
+          {
+            config.ArquivosRestore = new List<string>();
+
+            foreach (FileInfo fileinfo in arquivos)
+            {
+              config.ArquivosRestore.Add(fileinfo.Name);
+            }
+            return config;
+          }
+          else
+            return config;
           #endregion
+
         }
         #endregion
 

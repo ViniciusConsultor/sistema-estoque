@@ -207,26 +207,26 @@
       // cadastrarToolStripMenuItem1
       // 
       this.cadastrarToolStripMenuItem1.Name = "cadastrarToolStripMenuItem1";
-      this.cadastrarToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+      this.cadastrarToolStripMenuItem1.Size = new System.Drawing.Size(133, 22);
       this.cadastrarToolStripMenuItem1.Text = "Cadastrar";
       this.cadastrarToolStripMenuItem1.Click += new System.EventHandler(this.cadastrarToolStripMenuItem1_Click);
       // 
       // alterarToolStripMenuItem3
       // 
       this.alterarToolStripMenuItem3.Name = "alterarToolStripMenuItem3";
-      this.alterarToolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
+      this.alterarToolStripMenuItem3.Size = new System.Drawing.Size(133, 22);
       this.alterarToolStripMenuItem3.Text = "Alterar";
       // 
       // pesquisarToolStripMenuItem2
       // 
       this.pesquisarToolStripMenuItem2.Name = "pesquisarToolStripMenuItem2";
-      this.pesquisarToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+      this.pesquisarToolStripMenuItem2.Size = new System.Drawing.Size(133, 22);
       this.pesquisarToolStripMenuItem2.Text = "Pesquisar";
       // 
       // excluirToolStripMenuItem2
       // 
       this.excluirToolStripMenuItem2.Name = "excluirToolStripMenuItem2";
-      this.excluirToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+      this.excluirToolStripMenuItem2.Size = new System.Drawing.Size(133, 22);
       this.excluirToolStripMenuItem2.Text = "Excluir";
       // 
       // statusStrip1
@@ -265,6 +265,7 @@
       this.Name = "frmPrincipal";
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "Sistema de Controle de Estoque";
+      this.Load += new System.EventHandler(this.frmPrincipal_Load);
       this.menuStrip1.ResumeLayout(false);
       this.menuStrip1.PerformLayout();
       this.statusStrip1.ResumeLayout(false);

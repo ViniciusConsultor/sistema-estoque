@@ -22,7 +22,6 @@ namespace Estoque.View
 
     Configuration configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
     Configuracoes config = null;
-
     private void frmConfiguracao_Load(object sender, EventArgs e)
     {
 
@@ -30,7 +29,6 @@ namespace Estoque.View
 
       dataBase data = null;
       string conexao = string.Empty;
-      SqlConnection conn = null;
 
 
       #endregion
@@ -41,8 +39,12 @@ namespace Estoque.View
 
       config = data.iserirConexao();
 
-      cbListServer.DataSource = config.Servidores;
-      cbDataBase.DataSource = config.Databases;
+      foreach (string item in config.Servidores)
+      {
+        cbListServer.Items.Add(item);
+        cbListServer.DisplayMember = "";
+        cbListServer.ValueMember = "";
+      }
       tbUser.Text = config.User;
       tbSenha.Text = config.Senha;
 
@@ -53,46 +55,34 @@ namespace Estoque.View
     {
       #region Declaração
 
-      Configuracoes config = null;
-
       dataBase data = null;
       SqlConnection conn = null;
 
       #endregion
 
       #region Implementação
-
-      data = new dataBase();
-
-      config = data.iserirConexao();
-
-      conn = data.conectar(config);
-
-      lbConString.Text = config.ConectionString;
-
-      if (conn.State == ConnectionState.Open)
+      if (cbDataBase.Text != "")
       {
-        lbTeste.Text = "Conectado com Sucesso!";
-        lbTeste.ForeColor = Color.Blue;
 
-      }
-      else
-      {
-        lbTeste.Text = "Não foi possível conectar ao Banco de Dados";
-        lbTeste.ForeColor = Color.Red;
+        data = new dataBase();
+
+        //config = data.iserirConexao();
+        config.Servidor = cbListServer.Text;
+        config.Database = cbDataBase.Text;
+        config.User = tbUser.Text;
+        config.Senha = tbSenha.Text;
 
         config = mudaConfigurações();
 
         conn = data.conectar(config);
 
+        lbConString.Text = config.ConectionString;
+
         if (conn.State == ConnectionState.Open)
         {
           lbTeste.Text = "Conectado com Sucesso!";
           lbTeste.ForeColor = Color.Blue;
-          if (data.salvaConfiguracoes(config))
-          {
-            MessageBox.Show("Salvo com Sucesso", "Sucesso", MessageBoxButtons.OK);
-          }
+          btnBackup.Enabled = true;
 
         }
         else
@@ -101,6 +91,8 @@ namespace Estoque.View
           lbTeste.ForeColor = Color.Red;
         }
       }
+      else
+        MessageBox.Show("Selecione o Banco!", "Aviso");
 
       #endregion
     }
@@ -111,10 +103,6 @@ namespace Estoque.View
       ConnectionStringsSection csSection = new ConnectionStringsSection();
 
       #region Implementação
-
-      config.Database = cbDataBase.SelectedText;
-      config.User = tbUser.Text;
-      config.Senha = tbSenha.Text;
 
       myCSB.DataSource = config.Servidor;
       myCSB.InitialCatalog = config.Database;
@@ -131,6 +119,25 @@ namespace Estoque.View
     private void btnBackup_Click(object sender, EventArgs e)
     {
 
+      #region Declaração
+
+      configuracoesControler configControl = null;
+
+      #endregion
+
+      #region Implementação
+
+      configControl = new configuracoesControler();
+
+        if (configControl.Backup(config))
+        {
+          MessageBox.Show("Criado com Sucesso!", "Sucesso");
+        }
+        else
+          MessageBox.Show("Falha ao criar o arquivo!", "Sucesso");
+
+      #endregion
+
     }
 
     private void btnRestore_Click(object sender, EventArgs e)
@@ -138,15 +145,32 @@ namespace Estoque.View
 
       #region Implementação
 
-      frmRestoreDataBase restore = new frmRestoreDataBase();
+      frmRestoreDataBase restore = new frmRestoreDataBase(config);
       restore.Show();
 
       #endregion
     }
 
-    private void cbDataBase_DropDown(object sender, EventArgs e)
+    private void btnCarregaBanco_Click(object sender, EventArgs e)
     {
-      config.Servidor = cbListServer.SelectedText;
+
+      #region Implementação
+
+      config.Servidor = cbListServer.Text;
+
+      configuracoesControler configColtrol = new configuracoesControler();
+
+      config = configColtrol.CarregaBanco(config);
+
+      cbDataBase.DataSource = config.Databases;
+
+      if (config.Databases.Count > 0)
+      {
+        btnTeste.Enabled = true;
+      }
+
+      #endregion
+
     }
 
   }

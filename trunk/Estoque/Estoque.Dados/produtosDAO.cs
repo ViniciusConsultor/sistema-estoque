@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Data;
 using System.Data.SqlClient;
 using Estoque.Module;
@@ -10,18 +8,17 @@ namespace Estoque.Dados
 {
   public class produtosDAO
   {
-
     #region Construtor
 
     public produtosDAO()
     {
     }
 
-    #endregion
+    #endregion Construtor
 
     #region Atributos
 
-    #endregion
+    #endregion Atributos
 
     #region Métodos
 
@@ -32,23 +29,24 @@ namespace Estoque.Dados
     /// <returns>List<string> Categoria</returns>
     public List<Categoria> carregaCatProd(Configuracoes config)
     {
-
       #region Declaração
 
       string sql = string.Empty;
       SqlConnection conn = null;
       SqlCommand cmd = null;
       List<string> Categorias = null;
-      #endregion
+
+      #endregion Declaração
 
       #region Implementação
+
       Categoria categoria = null;
       List<Categoria> listCategoria = null;
       try
       {
         conn = new SqlConnection(config.ConectionString);
         cmd = new SqlCommand();
-        
+
         listCategoria = new List<Categoria>();
 
         SqlDataReader dr = null;
@@ -84,25 +82,23 @@ namespace Estoque.Dados
           conn.Close();
       }
 
-      #endregion
-
+      #endregion Implementação
     }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <param name="produto">Objeto Produto</param>
     /// <returns>true ou flase</returns>
     public bool cadastraProduto(Produto produto, Configuracoes config)
     {
-
       #region Declaração
 
       string sql = string.Empty;
       SqlConnection conn = null;
       SqlCommand cmd = null;
 
-      #endregion
+      #endregion Declaração
 
       #region Implementação
 
@@ -112,7 +108,6 @@ namespace Estoque.Dados
 
       try
       {
-
         sql = "";
 
         cmd.CommandText = sql;
@@ -120,7 +115,6 @@ namespace Estoque.Dados
         cmd.ExecuteNonQuery();
 
         return true;
-
       }
       catch (Exception ex)
       {
@@ -132,16 +126,9 @@ namespace Estoque.Dados
           conn.Close();
       }
 
-      #endregion
-
+      #endregion Implementação
     }
-    #endregion
+
+    #endregion Métodos
   }
-
-
-
-
-
-
-
 }

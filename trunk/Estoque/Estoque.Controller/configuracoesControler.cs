@@ -5,6 +5,7 @@ using System.Text;
 using System.Data.SqlClient;
 using Estoque.Module;
 using Estoque.Dados;
+using Microsoft.SqlServer.Management.Smo;
 
 namespace Estoque.Controller
 {
@@ -21,54 +22,6 @@ namespace Estoque.Controller
 
     #region Métodos
 
-    //public bool salvaConf(Configuracoes config)
-    //{
-
-    //    #region Declaração
-    //    dataBase data = null;
-    //    #endregion
-
-    //    #region Implementação
-
-    //    data = new dataBase();
-    //    return data.salvaConfiguracoes(config);
-
-    //    #endregion
-    //}
-
-    //public SqlConnection carregaConfiguracao(Configuracoes config)
-    //{
-
-    //    #region Declaração
-
-    //    dataBase data = null;
-    //    #endregion
-
-    //    #region Implementação
-
-    //    data = new dataBase();
-
-    //    return data.conectar(config);
-    //    #endregion
-    //}
-
-    //public void carregaString()
-    //{
-
-    //    #region Declaração
-    //    dataBase data = null;
-    //    Configuracoes config = null;
-    //    #endregion
-
-    //    #region Implementação
-    //    config = new Configuracoes();
-
-    //    data = new dataBase();
-
-    //    return data.iserirConexao();
-    //    #endregion
-    //}
-
     /// <summary>
     /// Carrega os Servidores Sql Rodando na maquina
     /// </summary>
@@ -80,6 +33,7 @@ namespace Estoque.Controller
       #region Declaração
 
       configuracoesDAO configDAO = null;
+
       #endregion
 
       #region Implementação
@@ -89,6 +43,7 @@ namespace Estoque.Controller
       return configDAO.carregaServer(config);
 
       #endregion
+
     }
 
     /// <summary>
@@ -102,6 +57,7 @@ namespace Estoque.Controller
       #region Declaração
 
       configuracoesDAO configDAO = null;
+
       #endregion
 
       #region Implementação
@@ -109,11 +65,67 @@ namespace Estoque.Controller
       configDAO = new configuracoesDAO();
 
       return configDAO.ListaBanco(config);
-      
+
       #endregion
 
     }
 
+    public bool Backup(Configuracoes config)
+    {
+
+      #region Declaração
+
+      configuracoesDAO configDAO = null;
+
+      #endregion
+
+      #region Implementação
+
+      configDAO = new configuracoesDAO();
+
+      return configDAO.BackupDataBase(config);
+
+      #endregion
+
+    }
+
+    public bool Restore(Configuracoes config)
+    {
+
+      #region Declaração
+
+      configuracoesDAO configDAO = null;
+
+      #endregion
+
+      #region Implementação
+
+      configDAO = new configuracoesDAO();
+
+      return configDAO.RestoreDataBase(config);
+
+      #endregion
+
+    }
+
+    public Configuracoes ListaArquivos(Configuracoes config)
+    {
+
+      #region Declaração
+
+      configuracoesDAO configDAO = null;
+
+      #endregion
+
+      #region Implementação
+
+      configDAO = new configuracoesDAO();
+
+      return configDAO.ListaArquivos(config);
+
+      #endregion
+
+    }
     #endregion
 
   }

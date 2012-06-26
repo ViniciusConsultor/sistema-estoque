@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Estoque.Module
+﻿namespace Estoque.Module
 {
   public class Categoria
   {
-
     private string _categoria;
     private int _idCategoria;
-
 
     #region Propriedades
 
@@ -26,7 +19,6 @@ namespace Estoque.Module
       set { _idCategoria = value; }
     }
 
-    #endregion
-
+    #endregion Propriedades
   }
 }

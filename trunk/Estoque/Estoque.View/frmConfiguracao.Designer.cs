@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
       this.groupBox1 = new System.Windows.Forms.GroupBox();
+      this.btnCarregaBanco = new System.Windows.Forms.Button();
+      this.cbDataBase = new System.Windows.Forms.ComboBox();
       this.btnRestore = new System.Windows.Forms.Button();
       this.cbListServer = new System.Windows.Forms.ComboBox();
       this.lbConString = new System.Windows.Forms.Label();
@@ -42,12 +44,13 @@
       this.label2 = new System.Windows.Forms.Label();
       this.btnBackup = new System.Windows.Forms.Button();
       this.label1 = new System.Windows.Forms.Label();
-      this.cbDataBase = new System.Windows.Forms.ComboBox();
+      this.saveBackupDialog = new System.Windows.Forms.SaveFileDialog();
       this.groupBox1.SuspendLayout();
       this.SuspendLayout();
       // 
       // groupBox1
       // 
+      this.groupBox1.Controls.Add(this.btnCarregaBanco);
       this.groupBox1.Controls.Add(this.cbDataBase);
       this.groupBox1.Controls.Add(this.btnRestore);
       this.groupBox1.Controls.Add(this.cbListServer);
@@ -69,6 +72,25 @@
       this.groupBox1.TabStop = false;
       this.groupBox1.Text = "Banco de Dados";
       // 
+      // btnCarregaBanco
+      // 
+      this.btnCarregaBanco.Location = new System.Drawing.Point(246, 64);
+      this.btnCarregaBanco.Name = "btnCarregaBanco";
+      this.btnCarregaBanco.Size = new System.Drawing.Size(75, 23);
+      this.btnCarregaBanco.TabIndex = 17;
+      this.btnCarregaBanco.Text = "Carregar";
+      this.btnCarregaBanco.UseVisualStyleBackColor = true;
+      this.btnCarregaBanco.Click += new System.EventHandler(this.btnCarregaBanco_Click);
+      // 
+      // cbDataBase
+      // 
+      this.cbDataBase.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+      this.cbDataBase.FormattingEnabled = true;
+      this.cbDataBase.Location = new System.Drawing.Point(81, 65);
+      this.cbDataBase.Name = "cbDataBase";
+      this.cbDataBase.Size = new System.Drawing.Size(140, 23);
+      this.cbDataBase.TabIndex = 16;
+      // 
       // btnRestore
       // 
       this.btnRestore.Location = new System.Drawing.Point(388, 136);
@@ -81,12 +103,11 @@
       // 
       // cbListServer
       // 
-      this.cbListServer.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
       this.cbListServer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
       this.cbListServer.FormattingEnabled = true;
       this.cbListServer.Location = new System.Drawing.Point(81, 35);
       this.cbListServer.Name = "cbListServer";
-      this.cbListServer.Size = new System.Drawing.Size(253, 22);
+      this.cbListServer.Size = new System.Drawing.Size(253, 23);
       this.cbListServer.TabIndex = 14;
       // 
       // lbConString
@@ -117,6 +138,7 @@
       // 
       // btnTeste
       // 
+      this.btnTeste.Enabled = false;
       this.btnTeste.Location = new System.Drawing.Point(35, 260);
       this.btnTeste.Name = "btnTeste";
       this.btnTeste.Size = new System.Drawing.Size(87, 30);
@@ -168,6 +190,7 @@
       // 
       // btnBackup
       // 
+      this.btnBackup.Enabled = false;
       this.btnBackup.Location = new System.Drawing.Point(388, 100);
       this.btnBackup.Name = "btnBackup";
       this.btnBackup.Size = new System.Drawing.Size(80, 30);
@@ -184,16 +207,6 @@
       this.label1.Size = new System.Drawing.Size(55, 15);
       this.label1.TabIndex = 0;
       this.label1.Text = "Servidor:";
-      // 
-      // cbDataBase
-      // 
-      this.cbDataBase.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-      this.cbDataBase.FormattingEnabled = true;
-      this.cbDataBase.Location = new System.Drawing.Point(81, 65);
-      this.cbDataBase.Name = "cbDataBase";
-      this.cbDataBase.Size = new System.Drawing.Size(140, 23);
-      this.cbDataBase.TabIndex = 16;
-      this.cbDataBase.DropDown += new System.EventHandler(this.cbDataBase_DropDown);
       // 
       // frmConfiguracao
       // 
@@ -229,5 +242,7 @@
         private System.Windows.Forms.ComboBox cbListServer;
         private System.Windows.Forms.Button btnRestore;
         private System.Windows.Forms.ComboBox cbDataBase;
+        private System.Windows.Forms.Button btnCarregaBanco;
+        private System.Windows.Forms.SaveFileDialog saveBackupDialog;
     }
 }

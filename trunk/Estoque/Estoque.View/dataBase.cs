@@ -74,13 +74,14 @@ namespace Estoque.View
 
     public Configuracoes iserirConexao()
     {
-      Configuracoes config = new Configuracoes();
       AppSettingsSection appSetSec = configFile.AppSettings;
       configuracoesControler configControl = new configuracoesControler();
+      Configuracoes config = new Configuracoes();
 
       config = configControl.CarregaServidor(config);
-      config = configControl.CarregaBanco(config);
+      //config = configControl.CarregaBanco(config);
 
+      config.Servidor = appSetSec.Settings["servidor"].Value;
       config.Database = appSetSec.Settings["database"].Value;
       config.User = appSetSec.Settings["user"].Value;
       config.Senha = appSetSec.Settings["senha"].Value;
