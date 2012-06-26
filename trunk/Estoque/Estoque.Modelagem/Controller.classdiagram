@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="64516bc9-9dda-42ca-9a09-c796b516a01e" name="Controller" linkedPackageId="947a6d10-52c1-4213-a628-020a2a077fed" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="8d39dbe2-013f-4fb4-ae9a-8ff650e0309a">
+      <profileInstance Id="d825f338-bbfe-4ec3-9220-63abc4c19511" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="35f019c3-b1d7-4e0b-80d6-6f7d609cbcaa">
+      <profileInstance Id="39c566a1-49bc-4143-bf3c-bd17aeafb951" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="7011cf21-7a17-4fe6-aaa3-45ab87d66faa" name="ConfiguracoesController" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="3a7f57e2-d44d-46c7-92e5-7544cb649230" />
+        <ownedOperationsInternal>
+          <operation Id="c78fc894-2f95-4641-a209-3b60075f738e" name="Operation1" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="1d5cc52a-b602-4801-9da5-32c4f089f49c" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="4cd08b5f-6e53-4f14-a5e7-60bba072277d" name="fornecedorController" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="d7385941-19a4-40c4-b390-b00530edd238" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="d72d27cf-b0a5-4928-901b-43c94bde9d87" name="produtosController" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="16a303ca-d556-408c-a302-5ac519ec7571" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="8860fa73-aa85-46e9-ae13-1716b05b6469" name="usuarioController" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="320b51eb-63b1-452e-9db5-8bfd948558f8" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="947a6d10-52c1-4213-a628-020a2a077fed" name="Estoque.Modelagem">
+    <elementDefinition Id="93276ac0-3038-43b1-a960-63c20469e460" />
+  </package>
+</logicalClassDesignerModel>
