@@ -129,6 +129,43 @@ namespace Estoque.Dados
       #endregion Implementação
     }
 
+
+    public int carregaUltimoRegistro(Configuracoes config)
+    {
+
+      #region Declaração
+
+      SqlConnection conn = null;
+      SqlCommand cmd = null;
+      string sql = string.Empty;
+      int ultimoRegistro = 0;
+
+      #endregion
+
+      #region Implementação
+
+      conn = new SqlConnection(config.ConectionString);
+
+      sql = @"SELECT count('dbo.Proutos')";
+
+      conn.Open();
+
+      cmd = new SqlCommand(sql, conn);
+
+      SqlDataReader dr = cmd.ExecuteReader();
+
+      if (dr.HasRows)
+      {
+        while (dr.Read())
+        {
+          ultimoRegistro = Convert.ToInt32(dr[0].ToString());
+        }
+      }
+      return ultimoRegistro;
+
+      #endregion
+
+    }
     #endregion Métodos
   }
 }

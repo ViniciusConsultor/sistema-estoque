@@ -35,6 +35,22 @@ namespace Estoque.Controller
 
         #endregion
       }
+
+      public int LastID(Configuracoes config)
+      {
+
+        #region Declaração
+
+        produtosDAO produtoDAO = null;
+        #endregion
+
+        #region Implementação
+
+        produtoDAO = new produtosDAO();
+
+        return produtoDAO.carregaUltimoRegistro(config);
+        #endregion
+      }
       #endregion
 
     }
