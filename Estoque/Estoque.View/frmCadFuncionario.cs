@@ -8,5 +8,6 @@ namespace Estoque.View
     {
       InitializeComponent();
     }
+
   }
 }
