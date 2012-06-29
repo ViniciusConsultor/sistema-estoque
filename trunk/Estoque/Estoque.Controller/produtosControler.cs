@@ -51,6 +51,23 @@ namespace Estoque.Controller
         return produtoDAO.carregaUltimoRegistro(config);
         #endregion
       }
+
+      public bool cadastraProduto(Produto produto, Configuracoes config)
+      {
+
+        #region Declaração
+
+        produtosDAO prod = null;
+        #endregion
+
+        #region Implementação
+
+        prod = new produtosDAO();
+
+        return prod.cadastraProduto(produto, config);
+
+        #endregion
+      }
       #endregion
 
     }

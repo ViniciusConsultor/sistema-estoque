@@ -10,6 +10,7 @@ namespace Estoque.View
   {
 
     Configuracoes config = null;
+    bool carregado = false;
 
     #region Construtor
 
@@ -27,24 +28,13 @@ namespace Estoque.View
 
       #region Declaração
 
-      produtosControler produtos = null;
-      dataBase db = null;
-      List<Categoria> categoriasDB = null;
+
 
       #endregion
 
       #region Implementação
 
-      config = new Configuracoes();
-      db = new dataBase();
-      produtos = new produtosControler();
-      categoriasDB = new List<Categoria>();
 
-      config = db.iserirConexao();
-
-      categoriasDB = produtos.categoriaBanco(config);
-
-      cbCategorias.DataSource = categoriasDB;
 
       #endregion
     }
@@ -75,7 +65,7 @@ namespace Estoque.View
       valorCredito = mtbCrediario.Text.Replace(".", "").Replace("R$", "").Trim();
 
       produto.Nome = tbNomePro.Text;
-      produto.IdCategoria = cbCategorias.SelectedIndex;
+      produto.IdCategoria = int.Parse(cbCategorias.SelectedValue.ToString());
       produto.CodigoBarras = tbCodBarras.Text;
       produto.Quantidade = tbQuantidade.Text;
       produto.Disponivel = cbxDisponivel.Checked;
@@ -85,38 +75,76 @@ namespace Estoque.View
       produto.ValorAPrazo = valorPrazo;
       produto.ValorCrediario = valorCredito;
 
+      if (produtoControl.cadastraProduto(produto, config))
+      {
+        MessageBox.Show("Salvo com Sucesso!", "Sucesso", MessageBoxButtons.OK);
+      }
+      else
+      {
+        MessageBox.Show("Não foi possivel acessar a base!", "Erro", MessageBoxButtons.OK);
+      }
+
       #endregion
     }
 
-    
+
 
     private void btnNovo_Click(object sender, EventArgs e)
     {
-
       #region Declaração
 
       int Id = 0;
+      dataBase db = null;
+      List<Categoria> categoriasDB = null;
+
       #endregion
 
       #region Implementação
 
       produtosControler prodControl = new produtosControler();
-      Id = prodControl.LastID(config);
-      Id++;
-      tbCodigoPro.Text = Convert.ToString(Id);
 
-      btnSalvar.Enabled = true;
-      btnPesForne.Enabled = false;
-      tbNomePro.Enabled = true;
-      tbCodBarras.Enabled = true;
-      tbQuantidade.Enabled = true;
-      cbCategorias.Enabled = true;
-      cbxDisponivel.Enabled = true;
-      gbFornecedor.Enabled = true;
-      gbPrecos.Enabled = true;
+      config = new Configuracoes();
+      db = new dataBase();
+      categoriasDB = new List<Categoria>();
 
-      limpaForm();
+      config = db.iserirConexao();
 
+      categoriasDB = prodControl.categoriaBanco(config);
+
+      if (categoriasDB.Count > 0)
+      {
+
+        cbCategorias.DataSource = categoriasDB;
+
+        if (carregado == false) //verifica se ja foi clicado uma vez no botão Novo
+        {
+          Id = prodControl.LastID(config);
+          Id++;
+          tbCodigoPro.Text = Convert.ToString(Id);
+          carregado = true; //Seta para true para nao carregar as Categorias novamente
+        }
+        
+
+        btnSalvar.Enabled = true;
+        btnPesForne.Enabled = false;
+        tbNomePro.Enabled = true;
+        tbCodBarras.Enabled = true;
+        tbQuantidade.Enabled = true;
+        cbCategorias.Enabled = true;
+        cbxDisponivel.Enabled = true;
+        gbFornecedor.Enabled = true;
+        gbPrecos.Enabled = true;
+        //btnPesForne.Enabled = true; Habilitar após criar a Tabela no banco
+
+        
+
+        limpaForm();
+
+      }
+      else
+      {
+        MessageBox.Show("Erro ao carregar Dados","Erro");
+      }
       #endregion
     }
 
@@ -125,6 +153,7 @@ namespace Estoque.View
     {
 
       #region Implementação
+
       tbNomePro.Text = string.Empty;
       tbCodForne.Text = string.Empty;
       cbCategorias.Text = string.Empty;
@@ -139,7 +168,16 @@ namespace Estoque.View
       #endregion
 
     }
+    
+
+    private void btnPesForne_Click(object sender, EventArgs e)
+    {
+
+
+    }
+
     #endregion
+
   }
 
 }

@@ -91,7 +91,7 @@
       this.cbxDisponivel.Enabled = false;
       this.cbxDisponivel.Location = new System.Drawing.Point(196, 171);
       this.cbxDisponivel.Name = "cbxDisponivel";
-      this.cbxDisponivel.Size = new System.Drawing.Size(93, 19);
+      this.cbxDisponivel.Size = new System.Drawing.Size(77, 17);
       this.cbxDisponivel.TabIndex = 14;
       this.cbxDisponivel.Text = "Disponível";
       this.cbxDisponivel.UseVisualStyleBackColor = true;
@@ -323,11 +323,12 @@
       // 
       this.btnPesForne.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPesForne.BackgroundImage")));
       this.btnPesForne.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-      this.btnPesForne.Location = new System.Drawing.Point(126, 35);
+      this.btnPesForne.Location = new System.Drawing.Point(126, 33);
       this.btnPesForne.Name = "btnPesForne";
-      this.btnPesForne.Size = new System.Drawing.Size(28, 28);
+      this.btnPesForne.Size = new System.Drawing.Size(32, 32);
       this.btnPesForne.TabIndex = 3;
       this.btnPesForne.UseVisualStyleBackColor = true;
+      this.btnPesForne.Click += new System.EventHandler(this.btnPesForne_Click);
       // 
       // tbCodForne
       // 
