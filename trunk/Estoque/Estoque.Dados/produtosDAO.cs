@@ -35,7 +35,6 @@ namespace Estoque.Dados
       string sql = string.Empty;
       SqlConnection conn = null;
       SqlCommand cmd = null;
-      List<string> Categorias = null;
 
       #endregion Declaração
 
