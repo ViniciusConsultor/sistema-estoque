@@ -7,8 +7,12 @@ namespace Estoque.Module
 {
     public class Funcionario
     {
+
+      #region Atributos
+
       private int _id;
       private string _nome;
+      private DateTime _dataNascimento;
       private string _usuario;
       private string _senha;
       private string _perfil;
@@ -20,7 +24,7 @@ namespace Estoque.Module
       private string _telefone;
       private string _celular;
       private string _rua;
-      private int _casaNmero;
+      private int _casaNumero;
       private int _idCidade;
       private int _idEstado;
       private string _cidade;
@@ -28,7 +32,12 @@ namespace Estoque.Module
       private string _cargo;
       private DateTime _cadastradoEm;
       private bool _ativo;
-      
+      private string _complemento;
+      private string _referencia;
+      private DateTime _alteradoEm;
+
+      #endregion
+
       #region Propriedades
 
       public int Id
@@ -109,10 +118,10 @@ namespace Estoque.Module
         set { _rua = value; }
       }
 
-      public int CasaNmero
+      public int CasaNumero
       {
-        get { return _casaNmero; }
-        set { _casaNmero = value; }
+        get { return _casaNumero; }
+        set { _casaNumero = value; }
       }
 
       public int IdCidade
@@ -151,10 +160,34 @@ namespace Estoque.Module
         set { _cadastradoEm = value; }
       }
 
+      public DateTime AlteradoEm
+      {
+        get { return _alteradoEm; }
+        set { _alteradoEm = value; }
+      }
+
       public bool Ativo
       {
         get { return _ativo; }
         set { _ativo = value; }
+      }
+
+      public DateTime DataNascimento
+      {
+        get { return _dataNascimento; }
+        set { _dataNascimento = value; }
+      }
+
+      public string Complemento
+      {
+        get { return _complemento; }
+        set { _complemento = value; }
+      }
+
+      public string Referencia
+      {
+        get { return _referencia; }
+        set { _referencia = value; }
       }
 
       #endregion

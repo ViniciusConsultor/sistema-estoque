@@ -81,6 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="configuracoesDAO.cs" />
+    <Compile Include="funcionarioDAO.cs" />
     <Compile Include="produtosDAO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -265,6 +265,7 @@
       this.Name = "frmPrincipal";
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "Sistema de Controle de Estoque";
+      this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
       this.Load += new System.EventHandler(this.frmPrincipal_Load);
       this.menuStrip1.ResumeLayout(false);
       this.menuStrip1.PerformLayout();
