@@ -17,7 +17,7 @@ namespace Estoque.Module
       set { _id = value; }
     }
 
-    public string Cidade
+    public string Nome
     {
       get { return _cidade; }
       set { _cidade = value; }

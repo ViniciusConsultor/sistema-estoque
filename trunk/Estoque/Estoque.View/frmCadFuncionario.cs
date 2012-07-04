@@ -19,15 +19,15 @@ namespace Estoque.View
     private void btnNovo_Click(object sender, System.EventArgs e)
     {
 
-      #region Declaração
+      //#region Declaração
 
       funcionarioControler funcionControl = null;
       dataBase db = null;
-      int? ID = 0;
+      //int? ID = 0;
       List<Estado> estados = null;
-      #endregion
+      //#endregion
 
-      #region Implementação
+      //#region Implementação
 
       funcionControl = new funcionarioControler();
       db = new dataBase();
@@ -35,16 +35,16 @@ namespace Estoque.View
 
       config = db.iserirConexao();
 
-      ID = funcionControl.ultimoRegistro(config);
+      //ID = funcionControl.ultimoRegistro(config);
 
-      if (ID == 0)
-      {
-        ID = 0;
-      }
-      else
-      {
-        ID++;
-      }
+      //if (ID == 0)
+      //{
+      //  ID = 0;
+      //}
+      //else
+      //{
+      //  ID++;
+      //}
 
       estados = funcionControl.lstEstados(config);
 
@@ -53,12 +53,12 @@ namespace Estoque.View
         cbUF.DataSource = estados;
       }
 
-      tbMatricula.Text = Convert.ToString(ID);
+      //tbMatricula.Text = Convert.ToString(ID);
 
-      btnNovo.Enabled = false;
+      //btnNovo.Enabled = false;
       habilitaCampos();
 
-      #endregion
+      //#endregion
 
     }
 
@@ -72,6 +72,7 @@ namespace Estoque.View
       string CPF = string.Empty;
       string Fone = string.Empty;
       string Celular = string.Empty;
+      int ID = 0;
       #endregion
 
       #region Implementação
@@ -84,11 +85,11 @@ namespace Estoque.View
       Celular = mtbCelular.Text;
       if (tbNome.Text != "" && CPF != "" && tbRG.Text != "")
       {
-        CPF = CPF.Replace(".","").Replace("/","").Replace("-","");
+        CPF = CPF.Replace(".", "").Replace("/", "").Replace("-", "");
         Fone = Fone.Replace("(", "").Replace(")", "").Replace(" ", "").Replace("-", "");
         Celular = Celular.Replace("(", "").Replace(")", "").Replace(" ", "");
 
-        funcionario.Id = int.Parse(tbMatricula.Text);
+        //funcionario.Id = int.Parse(tbMatricula.Text);
         funcionario.Nome = tbNome.Text;
         funcionario.DataNascimento = dtpNascimento.Value;
         funcionario.Usuario = tbUsuario.Text;
@@ -107,25 +108,27 @@ namespace Estoque.View
         else
           funcionario.CasaNumero = 0;
         funcionario.Referencia = tbReferencia.Text;
-        funcionario.IdCidade = Convert.ToInt32(cbCidade.SelectedValue);
+        funcionario.IdCidade = int.Parse(cbCidade.SelectedValue.ToString());
         funcionario.Cidade = cbCidade.Text;
-        funcionario.IdEstado = Convert.ToInt32(cbUF.SelectedValue);
+        funcionario.IdEstado = Convert.ToInt32(cbUF.SelectedValue.ToString());
         funcionario.Estado = cbUF.Text;
         funcionario.Cargo = tbCargo.Text;
         funcionario.Ativo = cbxAtivo.Checked;
-        if (funcionControl.cadastrar(config, funcionario))
+        ID = funcionControl.cadastrar(config, funcionario);
+        if (ID > 0)
         {
-          MessageBox.Show("Cadastrado com secesso!", "Sucesso");
+          MessageBox.Show("Cadastrado com secesso! \n A Matricula do funcionário é: "+ ID, "Sucesso");
           btnNovo.Enabled = true;
           desabilitaCampos();
           this.Size = new System.Drawing.Size(459, 546);
+          tbMatricula.Text = ID.ToString();
         }
       }
       else
       {
-        MessageBox.Show("Alguns campos são Obrigatórios!","Atenção",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+        MessageBox.Show("Alguns campos são Obrigatórios!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
       }
-      
+
       #endregion
 
     }
@@ -253,12 +256,15 @@ namespace Estoque.View
     {
 
       #region Declaração
+
       funcionarioControler func = null;
       List<Cidade> cidades = null;
       int idEstado = 0;
+
       #endregion
 
       #region Implementação
+
       func = new funcionarioControler();
       cidades = new List<Cidade>();
 
@@ -267,7 +273,11 @@ namespace Estoque.View
       cidades = func.lstCidades(config, idEstado);
 
       cbCidade.DataSource = cidades;
+
+
       #endregion
     }
+
+
   }
 }
