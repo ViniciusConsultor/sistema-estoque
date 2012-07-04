@@ -203,13 +203,13 @@
       // 
       // cbCidade
       // 
-      this.cbCidade.DisplayMember = "Id";
+      this.cbCidade.DisplayMember = "Nome";
       this.cbCidade.FormattingEnabled = true;
       this.cbCidade.Location = new System.Drawing.Point(90, 41);
       this.cbCidade.Name = "cbCidade";
       this.cbCidade.Size = new System.Drawing.Size(181, 23);
       this.cbCidade.TabIndex = 3;
-      this.cbCidade.ValueMember = "Cidade";
+      this.cbCidade.ValueMember = "Id";
       // 
       // label14
       // 

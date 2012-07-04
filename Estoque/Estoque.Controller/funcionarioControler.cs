@@ -29,7 +29,7 @@ namespace Estoque.Controller
 
       }
 
-      public bool cadastrar(Configuracoes config, Funcionario func)
+      public int cadastrar(Configuracoes config, Funcionario func)
       {
 
         #region Declaração
