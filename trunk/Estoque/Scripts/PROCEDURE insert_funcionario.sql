@@ -22,7 +22,9 @@ CREATE PROCEDURE sp_insert_funcionario
 	@ativo BIT,
 	@id INT
 AS
-	INSERT INTO dbo.Funcionario (nome, dataNascimento, usuario, senha, perfil, email, cpf, rg, ctps, ctpsSerie, telefone, celular, rua, casaNum, idCidade, idEstado, cargo, complemento, Referencia, ativo)
-	VALUES (@nome, @datanascimento, @usuario, @senha, @perfil, @email, @cpf, @rg, @ctps, @ctpsserie, @telefone, @celular, @rua, @casanum, @idcidade, @idestado, @cargo, @complemento, @referencia, @ativo) set @id = @@IDENTITY
+	INSERT INTO dbo.Funcionario (nome, dataNascimento, usuario, senha, perfil, email, cpf, rg, ctps, ctpsSerie, 
+	telefone, celular, rua, casaNum, idCidade, idEstado, cargo, complemento, Referencia, ativo)
+	VALUES (@nome, @datanascimento, @usuario, @senha, @perfil, @email, @cpf, @rg, @ctps, @ctpsserie, 
+	@telefone, @celular, @rua, @casanum, @idcidade, @idestado, @cargo, @complemento, @referencia, @ativo) set @id = @@IDENTITY
 	
 

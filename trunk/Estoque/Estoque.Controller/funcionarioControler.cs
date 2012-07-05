@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data;
 using Estoque.Dados;
 using Estoque.Module;
 
@@ -10,26 +11,17 @@ namespace Estoque.Controller
     public class funcionarioControler
     {
 
-      #region Métodos
+      #region Construtor
 
-      public int? ultimoRegistro(Configuracoes config)
+      public funcionarioControler()
       {
-
-        #region Declaração
-
-        funcionarioDAO funcDAO = null;
-        #endregion
-
-        #region Implementação
-
-        funcDAO = new funcionarioDAO();
-
-        return funcDAO.LastID(config);
-        #endregion
-
       }
 
-      public int cadastrar(Configuracoes config, Funcionario func)
+      #endregion
+
+      #region Métodos
+
+      public int cadastrar(string strConn, Funcionario func, Usuario user)
       {
 
         #region Declaração
@@ -42,13 +34,13 @@ namespace Estoque.Controller
 
         funcionario = new funcionarioDAO();
 
-        return funcionario.insertFuncionario(config, func);
+        return funcionario.insertFuncionario(strConn, func, user);
 
         #endregion
 
       }
 
-      public List<Estado> lstEstados(Configuracoes config)
+      public List<Estado> lstEstados(string strConn)
       {
 
         #region Declaração
@@ -61,12 +53,13 @@ namespace Estoque.Controller
 
         func = new funcionarioDAO();
 
-        return func.carregaEstados(config);
+        return func.carregaEstados(strConn);
 
         #endregion
+
       }
 
-      public List<Cidade> lstCidades(Configuracoes config, int idEstado)
+      public List<Cidade> lstCidades(string strConn, int idEstado)
       {
 
         #region Declaração
@@ -79,12 +72,29 @@ namespace Estoque.Controller
 
         func = new funcionarioDAO();
 
-        return func.carregaCidades(config,idEstado);
+        return func.carregaCidades(strConn,idEstado);
 
         #endregion
 
       }
 
+      public DataTable pesquisar(string tipoPesquisa, string pesquisa, string strConn)
+      {
+
+        #region Declaração
+        funcionarioDAO func = null;
+
+        #endregion
+
+        #region Implementação
+
+        func = new funcionarioDAO();
+
+        return func.Buscar(tipoPesquisa, pesquisa, strConn);
+
+        #endregion
+
+      }
       #endregion
     }
 }

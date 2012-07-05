@@ -15,9 +15,6 @@ CREATE TABLE [dbo].[Funcionario](
 	[idFuncionario] [int] IDENTITY(1,1) NOT NULL,
 	[nome] [varchar](50) NOT NULL,
 	[dataNascimento] [varchar](10) NULL,
-	[usuario] [varchar](30) NULL,
-	[senha] [varchar](10) NULL,
-	[perfil] [varchar](20) NULL,
 	[email] [varchar](50) NULL,
 	[cpf] [varchar](11) NOT NULL,
 	[rg] [varchar](10) NOT NULL,
@@ -25,15 +22,14 @@ CREATE TABLE [dbo].[Funcionario](
 	[ctpsSerie] [varchar](5) NULL,
 	[telefone] [varchar](10) NULL,
 	[celular] [varchar](10) NULL,
+	[cargo] [varchar](20) NULL,
 	[rua] [varchar](50) NULL,
 	[casaNum] [int] NULL,
+	[Referencia] [varchar](30) NULL,
 	[idCidade] [int] NULL,
-	[idEstado] [tinyint] NULL,
-	[cargo] [varchar](20) NULL
+	[idEstado] [tinyint] NULL,	
 ) ON [PRIMARY]
 SET ANSI_PADDING OFF
-ALTER TABLE [dbo].[Funcionario] ADD [complemento] [varchar](30) NULL
-ALTER TABLE [dbo].[Funcionario] ADD [Referencia] [varchar](30) NULL
 ALTER TABLE [dbo].[Funcionario] ADD [LastEditDate] [datetime] NULL
 ALTER TABLE [dbo].[Funcionario] ADD [CreationDate] [datetime] NULL
 /****** Object:  Index [PK_Funcionario]    Script Date: 07/03/2012 15:51:30 ******/

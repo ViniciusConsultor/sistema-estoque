@@ -9,56 +9,39 @@ namespace Estoque.View
   public partial class frmCadFuncionario : Form
   {
 
-    Configuracoes config = null;
+    #region Declaração
 
-    public frmCadFuncionario()
+    //String de conexão
+    string strConn = string.Empty;
+
+    #endregion
+
+    #region Construtor
+
+    /// <summary>
+    /// Instancia da classe frmCadFuncionario
+    /// </summary>
+    /// <param name="strConn">String de conexão com o Banco de dados</param>
+    public frmCadFuncionario(string strConn)
     {
+      this.strConn = strConn;
       InitializeComponent();
     }
+
+    #endregion
+
+    #region Metodos
 
     private void btnNovo_Click(object sender, System.EventArgs e)
     {
 
-      //#region Declaração
-
-      funcionarioControler funcionControl = null;
-      dataBase db = null;
-      //int? ID = 0;
-      List<Estado> estados = null;
-      //#endregion
-
-      //#region Implementação
-
-      funcionControl = new funcionarioControler();
-      db = new dataBase();
-      config = new Configuracoes();
-
-      config = db.iserirConexao();
-
-      //ID = funcionControl.ultimoRegistro(config);
-
-      //if (ID == 0)
-      //{
-      //  ID = 0;
-      //}
-      //else
-      //{
-      //  ID++;
-      //}
-
-      estados = funcionControl.lstEstados(config);
-
-      if (estados.Count > 0)
-      {
-        cbUF.DataSource = estados;
-      }
-
-      //tbMatricula.Text = Convert.ToString(ID);
-
-      //btnNovo.Enabled = false;
+      #region Implementação
+     
+      btnNovo.Enabled = false;
       habilitaCampos();
+      limpaCampos();
 
-      //#endregion
+      #endregion
 
     }
 
@@ -73,6 +56,7 @@ namespace Estoque.View
       string Fone = string.Empty;
       string Celular = string.Empty;
       int ID = 0;
+      int comparaString = 0;
       #endregion
 
       #region Implementação
@@ -83,6 +67,7 @@ namespace Estoque.View
       CPF = mtbCpf.Text;
       Fone = mtbFone.Text;
       Celular = mtbCelular.Text;
+
       if (tbNome.Text != "" && CPF != "" && tbRG.Text != "")
       {
         CPF = CPF.Replace(".", "").Replace("/", "").Replace("-", "");
@@ -91,10 +76,7 @@ namespace Estoque.View
 
         //funcionario.Id = int.Parse(tbMatricula.Text);
         funcionario.Nome = tbNome.Text;
-        funcionario.DataNascimento = dtpNascimento.Value;
-        funcionario.Usuario = tbUsuario.Text;
-        funcionario.Senha = tbSenha.Text;
-        funcionario.Perfil = cbNivel.Text;
+        funcionario.DataNascimento = dtpNascimento.Text;
         funcionario.Email = tbEmail.Text;
         funcionario.Cpf = CPF;
         funcionario.Rg = tbRG.Text;
@@ -110,24 +92,46 @@ namespace Estoque.View
         funcionario.Referencia = tbReferencia.Text;
         funcionario.IdCidade = int.Parse(cbCidade.SelectedValue.ToString());
         funcionario.Cidade = cbCidade.Text;
-        funcionario.IdEstado = Convert.ToInt32(cbUF.SelectedValue.ToString());
+        funcionario.IdEstado = Convert.ToInt32(cbUF.SelectedIndex);
         funcionario.Estado = cbUF.Text;
         funcionario.Cargo = tbCargo.Text;
         funcionario.Ativo = cbxAtivo.Checked;
-        ID = funcionControl.cadastrar(config, funcionario);
-        if (ID > 0)
+
+        if (cbxAtivaUsuario.Checked == true)
         {
-          MessageBox.Show("Cadastrado com secesso! \n A Matricula do funcionário é: "+ ID, "Sucesso");
-          btnNovo.Enabled = true;
-          desabilitaCampos();
-          this.Size = new System.Drawing.Size(459, 546);
-          tbMatricula.Text = ID.ToString();
+          comparaString = tbSenha.Text.CompareTo(tbSenha2.Text);
+
+          if (comparaString == 0) // senhas iguais
+          {
+            if (cbNivel.Text != "")
+            {
+              Usuario usuario = new Usuario();
+
+              usuario.User = tbUsuario.Text;
+              usuario.Senha = tbSenha.Text;
+              usuario.Perfil = cbNivel.Text;
+              usuario.Acesso = cbxAtivaUsuario.Checked;
+              usuario.Ativo = cbxAtivo.Checked;
+
+              ID = funcionControl.cadastrar(strConn, funcionario, usuario);
+              if (ID > 0)
+              {
+                MessageBox.Show("Cadastrado com secesso! \n A Matricula do funcionário é: " + ID, "Sucesso");
+                btnNovo.Enabled = true;
+                desabilitaCampos();
+                this.Size = new System.Drawing.Size(459, 546);
+                tbMatricula.Text = ID.ToString();
+              }
+            }
+            else
+              MessageBox.Show("Selecione o Nivel de acesso!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+          }
+          else
+            MessageBox.Show("As senhas digitadas são diferentes!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
       }
       else
-      {
         MessageBox.Show("Alguns campos são Obrigatórios!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-      }
 
       #endregion
 
@@ -140,7 +144,7 @@ namespace Estoque.View
 
       if (cbxAtivaUsuario.Checked == true)
       {
-        this.Size = new System.Drawing.Size(459, 746);
+        this.Size = new System.Drawing.Size(459, 720);
       }
       else
       {
@@ -247,6 +251,10 @@ namespace Estoque.View
       tbNumero.Text = "";
       tbReferencia.Text = "";
       cbxAtivaUsuario.Checked = false;
+      tbUsuario.Text = "";
+      tbSenha.Text = "";
+      tbSenha2.Text = "";
+      cbxAtivo.Checked = false;
 
       #endregion
 
@@ -268,9 +276,9 @@ namespace Estoque.View
       func = new funcionarioControler();
       cidades = new List<Cidade>();
 
-      idEstado = int.Parse(cbUF.SelectedValue.ToString());
+      idEstado = cbUF.SelectedIndex;
 
-      cidades = func.lstCidades(config, idEstado);
+      cidades = func.lstCidades(strConn, idEstado);
 
       cbCidade.DataSource = cidades;
 
@@ -278,6 +286,7 @@ namespace Estoque.View
       #endregion
     }
 
+    #endregion
 
   }
 }

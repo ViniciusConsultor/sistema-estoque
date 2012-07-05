@@ -9,15 +9,15 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TRIGGER [dbo].[Funcionario_InsertTrigger] 
-    ON [dbo].[Funcionario] 
+CREATE TRIGGER [dbo].[Usuario_InsertTrigger] 
+    ON [dbo].[Usuario] 
     AFTER INSERT 
 AS 
 BEGIN 
     SET NOCOUNT ON 
-    UPDATE [dbo].[Funcionario] 
+    UPDATE [dbo].[Usuario] 
     SET [CreationDate] = GETUTCDATE() 
     FROM inserted 
-    WHERE inserted.[idFuncionario] = [Funcionario].[idFuncionario] 
+    WHERE inserted.[idUsuario] = [Usuario].[idUsuario] 
 END;
 GO

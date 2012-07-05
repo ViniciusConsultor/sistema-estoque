@@ -96,6 +96,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>estoqueDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="frmAltFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAltFuncionario.Designer.cs">
+      <DependentUpon>frmAltFuncionario.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAltProdutos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +177,9 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="frmAltFuncionario.resx">
+      <DependentUpon>frmAltFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAltProdutos.resx">
       <DependentUpon>frmAltProdutos.cs</DependentUpon>
     </EmbeddedResource>
