@@ -12,7 +12,7 @@ namespace Estoque.Module
 
       private int _id;
       private string _nome;
-      private DateTime _dataNascimento;
+      private string _dataNascimento;
       private string _usuario;
       private string _senha;
       private string _perfil;
@@ -172,7 +172,7 @@ namespace Estoque.Module
         set { _ativo = value; }
       }
 
-      public DateTime DataNascimento
+      public string DataNascimento
       {
         get { return _dataNascimento; }
         set { _dataNascimento = value; }

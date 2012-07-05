@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
+using System.Data;
 using Estoque.Module;
 
 namespace Estoque.Dados
@@ -20,7 +21,7 @@ namespace Estoque.Dados
 
     #region Métodos
 
-    public List<Cidade> carregaCidades(Configuracoes config, int idEstado)
+    public List<Cidade> carregaCidades(string strConn, int idEstado)
     {
 
       #region Declaração
@@ -42,7 +43,7 @@ namespace Estoque.Dados
         conn = new SqlConnection();
         cmd = new SqlCommand();
 
-        conn.ConnectionString = config.ConectionString;
+        conn.ConnectionString = strConn;
         cmd.Connection = conn;
         cmd.CommandType = System.Data.CommandType.Text;
 
@@ -79,7 +80,7 @@ namespace Estoque.Dados
 
     }
 
-    public List<Estado> carregaEstados(Configuracoes config)
+    public List<Estado> carregaEstados(string strConn)
     {
 
       #region Declaração
@@ -101,7 +102,7 @@ namespace Estoque.Dados
         conn = new SqlConnection();
         cmd = new SqlCommand();
 
-        conn.ConnectionString = config.ConectionString;
+        conn.ConnectionString = strConn;
         cmd.Connection = conn;
         cmd.CommandType = System.Data.CommandType.Text;
 
@@ -138,7 +139,7 @@ namespace Estoque.Dados
 
     }
 
-    public int insertFuncionario(Configuracoes config, Funcionario funcionario)
+    public int insertFuncionario(string strConn, Funcionario funcionario, Usuario usuario)
     {
 
       #region Declaração
@@ -157,20 +158,17 @@ namespace Estoque.Dados
       try
       {
 
-        conn.ConnectionString = config.ConectionString;
+        conn.ConnectionString = strConn;
         cmd.Connection = conn;
-        cmd.CommandType = System.Data.CommandType.Text;
+        cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-        sql = @"INSERT INTO dbo.Funcionario (nome, dataNascimento, usuario, senha, perfil, email, cpf, rg, ctps, ctpsSerie, telefone, celular, rua, casaNum, idCidade, idEstado, cargo, Referencia)
-VALUES (@nome, @datanascimento, @usuario, @senha, @perfil, @email, @cpf, @rg, @ctps, @ctpsserie, @telefone, @celular, @rua, @casanum, @idcidade, @idestado, @cargo, @referencia) set @id = @@identity";
+        //sql = @"INSERT INTO dbo.Funcionario (nome, dataNascimento, usuario, senha, perfil, email, cpf, rg, ctps, ctpsSerie, telefone, celular, rua, casaNum, idCidade, idEstado, cargo, Referencia)
+        //VALUES (@nome, @datanascimento, @usuario, @senha, @perfil, @email, @cpf, @rg, @ctps, @ctpsserie, @telefone, @celular, @rua, @casanum, @idcidade, @idestado, @cargo, @referencia) set @id = @@identity";
 
-        cmd.CommandText = sql;
+        cmd.CommandText = "sp_insert_funcionario";
 
         cmd.Parameters.AddWithValue("@nome", funcionario.Nome);
         cmd.Parameters.AddWithValue("@datanascimento", funcionario.DataNascimento);
-        cmd.Parameters.AddWithValue("@usuario", funcionario.Usuario);
-        cmd.Parameters.AddWithValue("@senha", funcionario.Senha);
-        cmd.Parameters.AddWithValue("@perfil", funcionario.Perfil);
         cmd.Parameters.AddWithValue("@email", funcionario.Email);
         cmd.Parameters.AddWithValue("@cpf", funcionario.Cpf);
         cmd.Parameters.AddWithValue("@rg", funcionario.Rg);
@@ -191,6 +189,32 @@ VALUES (@nome, @datanascimento, @usuario, @senha, @perfil, @email, @cpf, @rg, @c
         cmd.ExecuteNonQuery();
 
         ID = Convert.ToInt32(cmd.Parameters["@id"].Value);
+
+        if (usuario.Acesso == true)
+        {
+
+          conn.Close();
+
+          cmd = null;
+          cmd = new SqlCommand();
+
+          conn.ConnectionString = strConn;
+          cmd.Connection = conn;
+          cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+          cmd.CommandText = "sp_insert_usuario";
+
+          cmd.Parameters.AddWithValue("@usuario", usuario.User);
+          cmd.Parameters.AddWithValue("@senha", usuario.Senha);
+          cmd.Parameters.AddWithValue("@perfil", usuario.Perfil);
+          cmd.Parameters.AddWithValue("idfuncionario", ID);
+          cmd.Parameters.AddWithValue("@ativo", usuario.Ativo);
+
+          conn.Open();
+
+          cmd.ExecuteNonQuery();
+
+        }
         
 
         return ID;
@@ -206,56 +230,82 @@ VALUES (@nome, @datanascimento, @usuario, @senha, @perfil, @email, @cpf, @rg, @c
       }
 
       #endregion
+
     }
 
-    /// <summary>
-    /// Retorna o Ultimo Indice da Tabela
-    /// </summary>
-    /// <param name="config">Configurações</param>
-    /// <returns>Ultimo ID da Tabela</returns>
-    public int LastID(Configuracoes config)
+    public DataTable Buscar(string tipoPesquisa, string pesquisa, string strConn)
     {
 
       #region Declaração
 
       SqlConnection conn = null;
       SqlCommand cmd = null;
+      SqlDataAdapter da = null;
+      DataTable dt = null;
       string sql = string.Empty;
-      int ultimoRegistro = 0;
-      string id = "";
 
       #endregion
 
       #region Implementação
 
-      conn = new SqlConnection(config.ConectionString);
-
-      sql = @"SELECT MAX(idFuncionario) FROM Funcionario";
-
-      conn.Open();
-
-      cmd = new SqlCommand(sql, conn);
-
-      SqlDataReader dr = cmd.ExecuteReader();
-
-      if (dr.HasRows)
+      switch (tipoPesquisa)
       {
-        while (dr.Read())
-        {
-          id = dr[0].ToString();
-        }
-      }
-      if (id == "")
-      {
-        id = "0";
-        ultimoRegistro = Convert.ToInt32(id);
+        default:
+          sql = "";
+          break;
+        case "Nome":
+          sql = "";
+          break;
+        case "CPF":
+          sql = "";
+          break;
+        case "RG":
+          sql = "";
+          break;
+        case "Ativos":
+          sql = "";
+          break;
+        case "Inativos":
+          sql = "";
+          break;
       }
 
-      return ultimoRegistro;
+      try
+      {
+
+        conn = new SqlConnection();
+        conn.ConnectionString = strConn;
+
+        cmd = new SqlCommand();
+        cmd.CommandType = CommandType.StoredProcedure;
+        cmd.CommandText = sql;
+        cmd.Connection = conn;
+
+        conn.Open();
+
+        da = new SqlDataAdapter();
+        da.SelectCommand = cmd;
+        da.GetFillParameters();
+
+        dt = new DataTable();
+        da.Fill(dt);
+
+        return dt;
+
+      }
+      catch (Exception ex)
+      {
+        return dt;
+      }
+      finally
+      {
+        conn.Open();
+      }
+
 
       #endregion
-
     }
     #endregion
+
   }
 }

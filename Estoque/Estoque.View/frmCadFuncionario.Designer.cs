@@ -156,6 +156,7 @@
       // tbReferencia
       // 
       this.tbReferencia.Location = new System.Drawing.Point(11, 136);
+      this.tbReferencia.MaxLength = 50;
       this.tbReferencia.Name = "tbReferencia";
       this.tbReferencia.Size = new System.Drawing.Size(243, 21);
       this.tbReferencia.TabIndex = 9;
@@ -172,6 +173,7 @@
       // tbNumero
       // 
       this.tbNumero.Location = new System.Drawing.Point(279, 90);
+      this.tbNumero.MaxLength = 5;
       this.tbNumero.Name = "tbNumero";
       this.tbNumero.Size = new System.Drawing.Size(58, 21);
       this.tbNumero.TabIndex = 7;
@@ -188,6 +190,7 @@
       // tbRua
       // 
       this.tbRua.Location = new System.Drawing.Point(11, 89);
+      this.tbRua.MaxLength = 50;
       this.tbRua.Name = "tbRua";
       this.tbRua.Size = new System.Drawing.Size(243, 21);
       this.tbRua.TabIndex = 5;
@@ -222,13 +225,40 @@
       // 
       // cbUF
       // 
-      this.cbUF.DisplayMember = "Sigla";
       this.cbUF.FormattingEnabled = true;
+      this.cbUF.Items.AddRange(new object[] {
+            "",
+            "AC",
+            "AL",
+            "AM",
+            "AP",
+            "BA",
+            "CE",
+            "DF",
+            "ES",
+            "GO",
+            "MA",
+            "MG",
+            "MS",
+            "MT",
+            "PA",
+            "PB",
+            "PE",
+            "PI",
+            "PR",
+            "RJ",
+            "RN",
+            "RO",
+            "RR",
+            "RS",
+            "SC",
+            "SE",
+            "SP",
+            "TO"});
       this.cbUF.Location = new System.Drawing.Point(11, 40);
       this.cbUF.Name = "cbUF";
       this.cbUF.Size = new System.Drawing.Size(55, 23);
       this.cbUF.TabIndex = 1;
-      this.cbUF.ValueMember = "Id";
       this.cbUF.SelectedIndexChanged += new System.EventHandler(this.cbUF_SelectedIndexChanged);
       // 
       // label13
@@ -243,6 +273,7 @@
       // tbCargo
       // 
       this.tbCargo.Location = new System.Drawing.Point(230, 167);
+      this.tbCargo.MaxLength = 20;
       this.tbCargo.Name = "tbCargo";
       this.tbCargo.Size = new System.Drawing.Size(186, 21);
       this.tbCargo.TabIndex = 20;
@@ -309,6 +340,7 @@
       // tbEmail
       // 
       this.tbEmail.Location = new System.Drawing.Point(13, 39);
+      this.tbEmail.MaxLength = 50;
       this.tbEmail.Name = "tbEmail";
       this.tbEmail.Size = new System.Drawing.Size(264, 21);
       this.tbEmail.TabIndex = 8;
@@ -343,6 +375,7 @@
       // tbSerieCart
       // 
       this.tbSerieCart.Location = new System.Drawing.Point(143, 167);
+      this.tbSerieCart.MaxLength = 4;
       this.tbSerieCart.Name = "tbSerieCart";
       this.tbSerieCart.Size = new System.Drawing.Size(55, 21);
       this.tbSerieCart.TabIndex = 16;
@@ -359,6 +392,7 @@
       // tbCartProf
       // 
       this.tbCartProf.Location = new System.Drawing.Point(20, 167);
+      this.tbCartProf.MaxLength = 7;
       this.tbCartProf.Name = "tbCartProf";
       this.tbCartProf.Size = new System.Drawing.Size(114, 21);
       this.tbCartProf.TabIndex = 14;
@@ -375,6 +409,7 @@
       // tbRG
       // 
       this.tbRG.Location = new System.Drawing.Point(152, 123);
+      this.tbRG.MaxLength = 10;
       this.tbRG.Name = "tbRG";
       this.tbRG.Size = new System.Drawing.Size(103, 21);
       this.tbRG.TabIndex = 12;
@@ -400,6 +435,8 @@
       // 
       this.dtpNascimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
       this.dtpNascimento.Location = new System.Drawing.Point(16, 123);
+      this.dtpNascimento.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
+      this.dtpNascimento.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
       this.dtpNascimento.Name = "dtpNascimento";
       this.dtpNascimento.Size = new System.Drawing.Size(110, 21);
       this.dtpNascimento.TabIndex = 6;
@@ -427,6 +464,7 @@
       // tbNome
       // 
       this.tbNome.Location = new System.Drawing.Point(16, 80);
+      this.tbNome.MaxLength = 50;
       this.tbNome.Name = "tbNome";
       this.tbNome.Size = new System.Drawing.Size(400, 21);
       this.tbNome.TabIndex = 3;
@@ -444,6 +482,7 @@
       // 
       this.tbMatricula.Location = new System.Drawing.Point(16, 38);
       this.tbMatricula.Name = "tbMatricula";
+      this.tbMatricula.ReadOnly = true;
       this.tbMatricula.Size = new System.Drawing.Size(100, 21);
       this.tbMatricula.TabIndex = 1;
       // 
@@ -469,7 +508,7 @@
       this.gbUsuario.Controls.Add(this.label18);
       this.gbUsuario.Location = new System.Drawing.Point(12, 510);
       this.gbUsuario.Name = "gbUsuario";
-      this.gbUsuario.Size = new System.Drawing.Size(430, 196);
+      this.gbUsuario.Size = new System.Drawing.Size(430, 169);
       this.gbUsuario.TabIndex = 1;
       this.gbUsuario.TabStop = false;
       this.gbUsuario.Text = "Usuario";
@@ -477,9 +516,9 @@
       // cbxAtivo
       // 
       this.cbxAtivo.AutoSize = true;
-      this.cbxAtivo.Location = new System.Drawing.Point(214, 145);
+      this.cbxAtivo.Location = new System.Drawing.Point(214, 137);
       this.cbxAtivo.Name = "cbxAtivo";
-      this.cbxAtivo.Size = new System.Drawing.Size(50, 17);
+      this.cbxAtivo.Size = new System.Drawing.Size(56, 19);
       this.cbxAtivo.TabIndex = 8;
       this.cbxAtivo.Text = "Ativo";
       this.cbxAtivo.UseVisualStyleBackColor = true;
@@ -492,7 +531,7 @@
             "Administrador",
             "Gerente",
             "Usuario"});
-      this.cbNivel.Location = new System.Drawing.Point(17, 145);
+      this.cbNivel.Location = new System.Drawing.Point(17, 137);
       this.cbNivel.Name = "cbNivel";
       this.cbNivel.Size = new System.Drawing.Size(169, 23);
       this.cbNivel.TabIndex = 7;
@@ -500,7 +539,7 @@
       // label21
       // 
       this.label21.AutoSize = true;
-      this.label21.Location = new System.Drawing.Point(17, 126);
+      this.label21.Location = new System.Drawing.Point(17, 118);
       this.label21.Name = "label21";
       this.label21.Size = new System.Drawing.Size(108, 15);
       this.label21.TabIndex = 6;
@@ -508,7 +547,8 @@
       // 
       // tbSenha2
       // 
-      this.tbSenha2.Location = new System.Drawing.Point(177, 98);
+      this.tbSenha2.Location = new System.Drawing.Point(177, 90);
+      this.tbSenha2.MaxLength = 10;
       this.tbSenha2.Name = "tbSenha2";
       this.tbSenha2.Size = new System.Drawing.Size(147, 21);
       this.tbSenha2.TabIndex = 5;
@@ -516,7 +556,7 @@
       // label20
       // 
       this.label20.AutoSize = true;
-      this.label20.Location = new System.Drawing.Point(174, 79);
+      this.label20.Location = new System.Drawing.Point(174, 71);
       this.label20.Name = "label20";
       this.label20.Size = new System.Drawing.Size(106, 15);
       this.label20.TabIndex = 4;
@@ -524,7 +564,8 @@
       // 
       // tbSenha
       // 
-      this.tbSenha.Location = new System.Drawing.Point(14, 98);
+      this.tbSenha.Location = new System.Drawing.Point(14, 90);
+      this.tbSenha.MaxLength = 10;
       this.tbSenha.Name = "tbSenha";
       this.tbSenha.PasswordChar = '*';
       this.tbSenha.Size = new System.Drawing.Size(147, 21);
@@ -533,7 +574,7 @@
       // label19
       // 
       this.label19.AutoSize = true;
-      this.label19.Location = new System.Drawing.Point(14, 79);
+      this.label19.Location = new System.Drawing.Point(14, 71);
       this.label19.Name = "label19";
       this.label19.Size = new System.Drawing.Size(48, 15);
       this.label19.TabIndex = 2;
@@ -541,7 +582,8 @@
       // 
       // tbUsuario
       // 
-      this.tbUsuario.Location = new System.Drawing.Point(14, 51);
+      this.tbUsuario.Location = new System.Drawing.Point(14, 43);
+      this.tbUsuario.MaxLength = 30;
       this.tbUsuario.Name = "tbUsuario";
       this.tbUsuario.Size = new System.Drawing.Size(147, 21);
       this.tbUsuario.TabIndex = 1;
@@ -549,7 +591,7 @@
       // label18
       // 
       this.label18.AutoSize = true;
-      this.label18.Location = new System.Drawing.Point(14, 32);
+      this.label18.Location = new System.Drawing.Point(14, 24);
       this.label18.Name = "label18";
       this.label18.Size = new System.Drawing.Size(57, 15);
       this.label18.TabIndex = 0;
@@ -559,7 +601,7 @@
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(451, 712);
+      this.ClientSize = new System.Drawing.Size(451, 686);
       this.Controls.Add(this.gbUsuario);
       this.Controls.Add(this.gbFuncionario);
       this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
