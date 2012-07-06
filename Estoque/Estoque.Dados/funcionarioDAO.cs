@@ -251,22 +251,39 @@ namespace Estoque.Dados
       switch (tipoPesquisa)
       {
         default:
-          sql = "";
+          sql = @"SELECT funci.idFuncionario, funci.nome, funci.dataNascimento, funci.email, funci.cpf, funci.rg, funci.ctps, funci.ctpsSerie, funci.telefone, funci.celular,
+                funci.cargo, funci.rua, funci.casaNum, funci.Referencia, funci.idCidade, funci.idEstado, funci.LastEditDate, funci.CreationDate, funci.excluido, cid.Nome
+                FROM dbo.Funcionario AS funci INNER JOIN Cidade AS cid ON cid.CidadeId = funci.idCidade";
+          break;
+        case "Matricula":
+          sql = @"SSELECT funci.idFuncionario, funci.nome, funci.dataNascimento, funci.email, funci.cpf, funci.rg, funci.ctps, funci.ctpsSerie, funci.telefone, funci.celular,
+                funci.cargo, funci.rua, funci.casaNum, funci.Referencia, funci.idCidade, funci.idEstado, funci.LastEditDate, funci.CreationDate, funci.excluido, cid.Nome
+                FROM dbo.Funcionario AS funci INNER JOIN Cidade AS cid ON cid.CidadeId = funci.idCidade WHERE funci.idFuncionario = " + pesquisa;
           break;
         case "Nome":
-          sql = "";
+          sql = @"SELECT funci.idFuncionario, funci.nome, funci.dataNascimento, funci.email, funci.cpf, funci.rg, funci.ctps, funci.ctpsSerie, funci.telefone, funci.celular,
+                funci.cargo, funci.rua, funci.casaNum, funci.Referencia, funci.idCidade, funci.idEstado, funci.LastEditDate, funci.CreationDate, funci.excluido, cid.Nome
+                FROM dbo.Funcionario AS funci INNER JOIN Cidade AS cid ON cid.CidadeId = funci.idCidade WHERE funci.nome LIKE '" + pesquisa + "'";
           break;
         case "CPF":
-          sql = "";
+          sql = @"SELECT funci.idFuncionario, funci.nome, funci.dataNascimento, funci.email, funci.cpf, funci.rg, funci.ctps, funci.ctpsSerie, funci.telefone, funci.celular,
+                funci.cargo, funci.rua, funci.casaNum, funci.Referencia, funci.idCidade, funci.idEstado, funci.LastEditDate, funci.CreationDate, funci.excluido, cid.Nome
+                FROM dbo.Funcionario AS funci INNER JOIN Cidade AS cid ON cid.CidadeId = funci.idCidade WHERE funci.cpf LIKE '" + pesquisa + "'";
           break;
         case "RG":
-          sql = "";
+          sql = @"SELECT funci.idFuncionario, funci.nome, funci.dataNascimento, funci.email, funci.cpf, funci.rg, funci.ctps, funci.ctpsSerie, funci.telefone, funci.celular,
+                funci.cargo, funci.rua, funci.casaNum, funci.Referencia, funci.idCidade, funci.idEstado, funci.LastEditDate, funci.CreationDate, funci.excluido, cid.Nome
+                FROM dbo.Funcionario AS funci INNER JOIN Cidade AS cid ON cid.CidadeId = funci.idCidade WHERE funci.rg LIKE '" + pesquisa + "'";
           break;
         case "Ativos":
-          sql = "";
+          sql = @"SELECT funci.idFuncionario, funci.nome, funci.dataNascimento, funci.email, funci.cpf, funci.rg, funci.ctps, funci.ctpsSerie, funci.telefone, funci.celular,
+                funci.cargo, funci.rua, funci.casaNum, funci.Referencia, funci.idCidade, funci.idEstado, funci.LastEditDate, funci.CreationDate, funci.excluido, cid.Nome
+                FROM dbo.Funcionario AS funci INNER JOIN Cidade AS cid ON cid.CidadeId = funci.idCidade WHERE funci.excluido = 0";
           break;
         case "Inativos":
-          sql = "";
+          sql = @"SELECT funci.idFuncionario, funci.nome, funci.dataNascimento, funci.email, funci.cpf, funci.rg, funci.ctps, funci.ctpsSerie, funci.telefone, funci.celular,
+                funci.cargo, funci.rua, funci.casaNum, funci.Referencia, funci.idCidade, funci.idEstado, funci.LastEditDate, funci.CreationDate, funci.excluido, cid.Nome
+                FROM dbo.Funcionario AS funci INNER JOIN Cidade AS cid ON cid.CidadeId = funci.idCidade WHERE funci.excluido = 1";
           break;
       }
 
@@ -277,7 +294,7 @@ namespace Estoque.Dados
         conn.ConnectionString = strConn;
 
         cmd = new SqlCommand();
-        cmd.CommandType = CommandType.StoredProcedure;
+        cmd.CommandType = CommandType.Text;
         cmd.CommandText = sql;
         cmd.Connection = conn;
 
@@ -299,7 +316,7 @@ namespace Estoque.Dados
       }
       finally
       {
-        conn.Open();
+        conn.Close();
       }
 
 
