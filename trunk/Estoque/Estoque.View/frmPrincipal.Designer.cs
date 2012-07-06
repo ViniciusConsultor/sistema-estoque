@@ -216,6 +216,7 @@
       this.alterarToolStripMenuItem3.Name = "alterarToolStripMenuItem3";
       this.alterarToolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
       this.alterarToolStripMenuItem3.Text = "Alterar";
+      this.alterarToolStripMenuItem3.Click += new System.EventHandler(this.alterarToolStripMenuItem3_Click);
       // 
       // pesquisarToolStripMenuItem2
       // 
