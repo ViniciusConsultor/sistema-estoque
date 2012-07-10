@@ -36,6 +36,30 @@
       this.cbTipoPesquisa = new System.Windows.Forms.ComboBox();
       this.dgvFuncionarios = new System.Windows.Forms.DataGridView();
       this.gbInformacoes = new System.Windows.Forms.GroupBox();
+      this.lblAtivo = new System.Windows.Forms.Label();
+      this.lblAlteradoEm = new System.Windows.Forms.Label();
+      this.lblCadastradoEm = new System.Windows.Forms.Label();
+      this.btnSalvar = new System.Windows.Forms.Button();
+      this.label21 = new System.Windows.Forms.Label();
+      this.label23 = new System.Windows.Forms.Label();
+      this.tbUF = new System.Windows.Forms.TextBox();
+      this.tbReferencia = new System.Windows.Forms.TextBox();
+      this.label17 = new System.Windows.Forms.Label();
+      this.tbNumero = new System.Windows.Forms.TextBox();
+      this.label16 = new System.Windows.Forms.Label();
+      this.tbRua = new System.Windows.Forms.TextBox();
+      this.label15 = new System.Windows.Forms.Label();
+      this.cbCidade = new System.Windows.Forms.ComboBox();
+      this.label18 = new System.Windows.Forms.Label();
+      this.label19 = new System.Windows.Forms.Label();
+      this.label11 = new System.Windows.Forms.Label();
+      this.mtbCelular = new System.Windows.Forms.MaskedTextBox();
+      this.label10 = new System.Windows.Forms.Label();
+      this.mtbFone = new System.Windows.Forms.MaskedTextBox();
+      this.tbEmail = new System.Windows.Forms.TextBox();
+      this.label13 = new System.Windows.Forms.Label();
+      this.label14 = new System.Windows.Forms.Label();
+      this.tbDataNascimento = new System.Windows.Forms.TextBox();
       this.tbCargo = new System.Windows.Forms.TextBox();
       this.label12 = new System.Windows.Forms.Label();
       this.label6 = new System.Windows.Forms.Label();
@@ -51,31 +75,7 @@
       this.label4 = new System.Windows.Forms.Label();
       this.tbMatricula = new System.Windows.Forms.TextBox();
       this.label9 = new System.Windows.Forms.Label();
-      this.tbDataNascimento = new System.Windows.Forms.TextBox();
-      this.label11 = new System.Windows.Forms.Label();
-      this.mtbCelular = new System.Windows.Forms.MaskedTextBox();
-      this.label10 = new System.Windows.Forms.Label();
-      this.mtbFone = new System.Windows.Forms.MaskedTextBox();
-      this.tbEmail = new System.Windows.Forms.TextBox();
-      this.label13 = new System.Windows.Forms.Label();
-      this.label14 = new System.Windows.Forms.Label();
-      this.tbReferencia = new System.Windows.Forms.TextBox();
-      this.label17 = new System.Windows.Forms.Label();
-      this.tbNumero = new System.Windows.Forms.TextBox();
-      this.label16 = new System.Windows.Forms.Label();
-      this.tbRua = new System.Windows.Forms.TextBox();
-      this.label15 = new System.Windows.Forms.Label();
-      this.cbCidade = new System.Windows.Forms.ComboBox();
-      this.label18 = new System.Windows.Forms.Label();
-      this.label19 = new System.Windows.Forms.Label();
-      this.tbUF = new System.Windows.Forms.TextBox();
-      this.label21 = new System.Windows.Forms.Label();
-      this.label23 = new System.Windows.Forms.Label();
       this.btnEditar = new System.Windows.Forms.Button();
-      this.btnSalvar = new System.Windows.Forms.Button();
-      this.lblCadastradoEm = new System.Windows.Forms.Label();
-      this.lblAlteradoEm = new System.Windows.Forms.Label();
-      this.lblAtivo = new System.Windows.Forms.Label();
       this.groupBox1.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionarios)).BeginInit();
       this.gbInformacoes.SuspendLayout();
@@ -154,6 +154,7 @@
       this.dgvFuncionarios.Location = new System.Drawing.Point(12, 144);
       this.dgvFuncionarios.Name = "dgvFuncionarios";
       this.dgvFuncionarios.ReadOnly = true;
+      this.dgvFuncionarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
       this.dgvFuncionarios.Size = new System.Drawing.Size(326, 300);
       this.dgvFuncionarios.TabIndex = 1;
       this.dgvFuncionarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFuncionarios_CellContentClick);
@@ -205,6 +206,220 @@
       this.gbInformacoes.TabIndex = 2;
       this.gbInformacoes.TabStop = false;
       this.gbInformacoes.Text = "Informações";
+      // 
+      // lblAtivo
+      // 
+      this.lblAtivo.AutoSize = true;
+      this.lblAtivo.Location = new System.Drawing.Point(145, 476);
+      this.lblAtivo.Name = "lblAtivo";
+      this.lblAtivo.Size = new System.Drawing.Size(0, 15);
+      this.lblAtivo.TabIndex = 69;
+      // 
+      // lblAlteradoEm
+      // 
+      this.lblAlteradoEm.AutoSize = true;
+      this.lblAlteradoEm.Location = new System.Drawing.Point(157, 448);
+      this.lblAlteradoEm.Name = "lblAlteradoEm";
+      this.lblAlteradoEm.Size = new System.Drawing.Size(0, 15);
+      this.lblAlteradoEm.TabIndex = 68;
+      // 
+      // lblCadastradoEm
+      // 
+      this.lblCadastradoEm.AutoSize = true;
+      this.lblCadastradoEm.Location = new System.Drawing.Point(126, 415);
+      this.lblCadastradoEm.Name = "lblCadastradoEm";
+      this.lblCadastradoEm.Size = new System.Drawing.Size(0, 15);
+      this.lblCadastradoEm.TabIndex = 67;
+      // 
+      // btnSalvar
+      // 
+      this.btnSalvar.Location = new System.Drawing.Point(174, 36);
+      this.btnSalvar.Name = "btnSalvar";
+      this.btnSalvar.Size = new System.Drawing.Size(75, 23);
+      this.btnSalvar.TabIndex = 66;
+      this.btnSalvar.Text = "Salvar";
+      this.btnSalvar.UseVisualStyleBackColor = true;
+      this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+      // 
+      // label21
+      // 
+      this.label21.AutoSize = true;
+      this.label21.Location = new System.Drawing.Point(6, 448);
+      this.label21.Name = "label21";
+      this.label21.Size = new System.Drawing.Size(145, 15);
+      this.label21.TabIndex = 63;
+      this.label21.Text = "Ultima alteração em: ";
+      // 
+      // label23
+      // 
+      this.label23.AutoSize = true;
+      this.label23.Location = new System.Drawing.Point(7, 415);
+      this.label23.Name = "label23";
+      this.label23.Size = new System.Drawing.Size(112, 15);
+      this.label23.TabIndex = 57;
+      this.label23.Text = "Cadastrado em: ";
+      // 
+      // tbUF
+      // 
+      this.tbUF.Location = new System.Drawing.Point(6, 297);
+      this.tbUF.Name = "tbUF";
+      this.tbUF.ReadOnly = true;
+      this.tbUF.Size = new System.Drawing.Size(44, 21);
+      this.tbUF.TabIndex = 56;
+      // 
+      // tbReferencia
+      // 
+      this.tbReferencia.Location = new System.Drawing.Point(6, 381);
+      this.tbReferencia.MaxLength = 50;
+      this.tbReferencia.Name = "tbReferencia";
+      this.tbReferencia.ReadOnly = true;
+      this.tbReferencia.Size = new System.Drawing.Size(231, 21);
+      this.tbReferencia.TabIndex = 54;
+      // 
+      // label17
+      // 
+      this.label17.AutoSize = true;
+      this.label17.Location = new System.Drawing.Point(6, 363);
+      this.label17.Name = "label17";
+      this.label17.Size = new System.Drawing.Size(77, 15);
+      this.label17.TabIndex = 53;
+      this.label17.Text = "Referencia";
+      // 
+      // tbNumero
+      // 
+      this.tbNumero.Location = new System.Drawing.Point(264, 339);
+      this.tbNumero.MaxLength = 5;
+      this.tbNumero.Name = "tbNumero";
+      this.tbNumero.ReadOnly = true;
+      this.tbNumero.Size = new System.Drawing.Size(58, 21);
+      this.tbNumero.TabIndex = 52;
+      // 
+      // label16
+      // 
+      this.label16.AutoSize = true;
+      this.label16.Location = new System.Drawing.Point(261, 319);
+      this.label16.Name = "label16";
+      this.label16.Size = new System.Drawing.Size(58, 15);
+      this.label16.TabIndex = 51;
+      this.label16.Text = "Numero";
+      // 
+      // tbRua
+      // 
+      this.tbRua.Location = new System.Drawing.Point(6, 339);
+      this.tbRua.MaxLength = 50;
+      this.tbRua.Name = "tbRua";
+      this.tbRua.ReadOnly = true;
+      this.tbRua.Size = new System.Drawing.Size(243, 21);
+      this.tbRua.TabIndex = 50;
+      // 
+      // label15
+      // 
+      this.label15.AutoSize = true;
+      this.label15.Location = new System.Drawing.Point(7, 321);
+      this.label15.Name = "label15";
+      this.label15.Size = new System.Drawing.Size(33, 15);
+      this.label15.TabIndex = 49;
+      this.label15.Text = "Rua";
+      // 
+      // cbCidade
+      // 
+      this.cbCidade.DisplayMember = "Nome";
+      this.cbCidade.Enabled = false;
+      this.cbCidade.FormattingEnabled = true;
+      this.cbCidade.Location = new System.Drawing.Point(74, 294);
+      this.cbCidade.Name = "cbCidade";
+      this.cbCidade.Size = new System.Drawing.Size(181, 23);
+      this.cbCidade.TabIndex = 48;
+      this.cbCidade.ValueMember = "Id";
+      // 
+      // label18
+      // 
+      this.label18.AutoSize = true;
+      this.label18.Location = new System.Drawing.Point(71, 274);
+      this.label18.Name = "label18";
+      this.label18.Size = new System.Drawing.Size(52, 15);
+      this.label18.TabIndex = 47;
+      this.label18.Text = "Cidade";
+      // 
+      // label19
+      // 
+      this.label19.AutoSize = true;
+      this.label19.Location = new System.Drawing.Point(7, 275);
+      this.label19.Name = "label19";
+      this.label19.Size = new System.Drawing.Size(25, 15);
+      this.label19.TabIndex = 45;
+      this.label19.Text = "UF";
+      // 
+      // label11
+      // 
+      this.label11.AutoSize = true;
+      this.label11.Location = new System.Drawing.Point(143, 233);
+      this.label11.Name = "label11";
+      this.label11.Size = new System.Drawing.Size(53, 15);
+      this.label11.TabIndex = 43;
+      this.label11.Text = "Celular";
+      // 
+      // mtbCelular
+      // 
+      this.mtbCelular.Location = new System.Drawing.Point(142, 252);
+      this.mtbCelular.Mask = "(99) 00000000";
+      this.mtbCelular.Name = "mtbCelular";
+      this.mtbCelular.ReadOnly = true;
+      this.mtbCelular.Size = new System.Drawing.Size(113, 21);
+      this.mtbCelular.TabIndex = 42;
+      // 
+      // label10
+      // 
+      this.label10.AutoSize = true;
+      this.label10.Location = new System.Drawing.Point(139, 233);
+      this.label10.Name = "label10";
+      this.label10.Size = new System.Drawing.Size(53, 15);
+      this.label10.TabIndex = 44;
+      this.label10.Text = "Celular";
+      // 
+      // mtbFone
+      // 
+      this.mtbFone.Location = new System.Drawing.Point(6, 251);
+      this.mtbFone.Mask = "(99) 0000-0000";
+      this.mtbFone.Name = "mtbFone";
+      this.mtbFone.ReadOnly = true;
+      this.mtbFone.Size = new System.Drawing.Size(113, 21);
+      this.mtbFone.TabIndex = 41;
+      // 
+      // tbEmail
+      // 
+      this.tbEmail.Location = new System.Drawing.Point(6, 209);
+      this.tbEmail.MaxLength = 50;
+      this.tbEmail.Name = "tbEmail";
+      this.tbEmail.ReadOnly = true;
+      this.tbEmail.Size = new System.Drawing.Size(264, 21);
+      this.tbEmail.TabIndex = 39;
+      // 
+      // label13
+      // 
+      this.label13.AutoSize = true;
+      this.label13.Location = new System.Drawing.Point(7, 233);
+      this.label13.Name = "label13";
+      this.label13.Size = new System.Drawing.Size(63, 15);
+      this.label13.TabIndex = 40;
+      this.label13.Text = "Telefone";
+      // 
+      // label14
+      // 
+      this.label14.AutoSize = true;
+      this.label14.Location = new System.Drawing.Point(6, 191);
+      this.label14.Name = "label14";
+      this.label14.Size = new System.Drawing.Size(44, 15);
+      this.label14.TabIndex = 38;
+      this.label14.Text = "Email";
+      // 
+      // tbDataNascimento
+      // 
+      this.tbDataNascimento.Location = new System.Drawing.Point(6, 124);
+      this.tbDataNascimento.Name = "tbDataNascimento";
+      this.tbDataNascimento.ReadOnly = true;
+      this.tbDataNascimento.Size = new System.Drawing.Size(115, 21);
+      this.tbDataNascimento.TabIndex = 37;
       // 
       // tbCargo
       // 
@@ -340,186 +555,6 @@
       this.label9.TabIndex = 21;
       this.label9.Text = "Matricula";
       // 
-      // tbDataNascimento
-      // 
-      this.tbDataNascimento.Location = new System.Drawing.Point(6, 124);
-      this.tbDataNascimento.Name = "tbDataNascimento";
-      this.tbDataNascimento.ReadOnly = true;
-      this.tbDataNascimento.Size = new System.Drawing.Size(115, 21);
-      this.tbDataNascimento.TabIndex = 37;
-      // 
-      // label11
-      // 
-      this.label11.AutoSize = true;
-      this.label11.Location = new System.Drawing.Point(143, 233);
-      this.label11.Name = "label11";
-      this.label11.Size = new System.Drawing.Size(53, 15);
-      this.label11.TabIndex = 43;
-      this.label11.Text = "Celular";
-      // 
-      // mtbCelular
-      // 
-      this.mtbCelular.Location = new System.Drawing.Point(142, 252);
-      this.mtbCelular.Mask = "(99) 00000000";
-      this.mtbCelular.Name = "mtbCelular";
-      this.mtbCelular.ReadOnly = true;
-      this.mtbCelular.Size = new System.Drawing.Size(113, 21);
-      this.mtbCelular.TabIndex = 42;
-      // 
-      // label10
-      // 
-      this.label10.AutoSize = true;
-      this.label10.Location = new System.Drawing.Point(139, 233);
-      this.label10.Name = "label10";
-      this.label10.Size = new System.Drawing.Size(53, 15);
-      this.label10.TabIndex = 44;
-      this.label10.Text = "Celular";
-      // 
-      // mtbFone
-      // 
-      this.mtbFone.Location = new System.Drawing.Point(6, 251);
-      this.mtbFone.Mask = "(99) 0000-0000";
-      this.mtbFone.Name = "mtbFone";
-      this.mtbFone.ReadOnly = true;
-      this.mtbFone.Size = new System.Drawing.Size(113, 21);
-      this.mtbFone.TabIndex = 41;
-      // 
-      // tbEmail
-      // 
-      this.tbEmail.Location = new System.Drawing.Point(6, 209);
-      this.tbEmail.MaxLength = 50;
-      this.tbEmail.Name = "tbEmail";
-      this.tbEmail.ReadOnly = true;
-      this.tbEmail.Size = new System.Drawing.Size(264, 21);
-      this.tbEmail.TabIndex = 39;
-      // 
-      // label13
-      // 
-      this.label13.AutoSize = true;
-      this.label13.Location = new System.Drawing.Point(7, 233);
-      this.label13.Name = "label13";
-      this.label13.Size = new System.Drawing.Size(63, 15);
-      this.label13.TabIndex = 40;
-      this.label13.Text = "Telefone";
-      // 
-      // label14
-      // 
-      this.label14.AutoSize = true;
-      this.label14.Location = new System.Drawing.Point(6, 191);
-      this.label14.Name = "label14";
-      this.label14.Size = new System.Drawing.Size(44, 15);
-      this.label14.TabIndex = 38;
-      this.label14.Text = "Email";
-      // 
-      // tbReferencia
-      // 
-      this.tbReferencia.Location = new System.Drawing.Point(6, 381);
-      this.tbReferencia.MaxLength = 50;
-      this.tbReferencia.Name = "tbReferencia";
-      this.tbReferencia.ReadOnly = true;
-      this.tbReferencia.Size = new System.Drawing.Size(231, 21);
-      this.tbReferencia.TabIndex = 54;
-      // 
-      // label17
-      // 
-      this.label17.AutoSize = true;
-      this.label17.Location = new System.Drawing.Point(6, 363);
-      this.label17.Name = "label17";
-      this.label17.Size = new System.Drawing.Size(77, 15);
-      this.label17.TabIndex = 53;
-      this.label17.Text = "Referencia";
-      // 
-      // tbNumero
-      // 
-      this.tbNumero.Location = new System.Drawing.Point(264, 339);
-      this.tbNumero.MaxLength = 5;
-      this.tbNumero.Name = "tbNumero";
-      this.tbNumero.ReadOnly = true;
-      this.tbNumero.Size = new System.Drawing.Size(58, 21);
-      this.tbNumero.TabIndex = 52;
-      // 
-      // label16
-      // 
-      this.label16.AutoSize = true;
-      this.label16.Location = new System.Drawing.Point(261, 319);
-      this.label16.Name = "label16";
-      this.label16.Size = new System.Drawing.Size(58, 15);
-      this.label16.TabIndex = 51;
-      this.label16.Text = "Numero";
-      // 
-      // tbRua
-      // 
-      this.tbRua.Location = new System.Drawing.Point(6, 339);
-      this.tbRua.MaxLength = 50;
-      this.tbRua.Name = "tbRua";
-      this.tbRua.ReadOnly = true;
-      this.tbRua.Size = new System.Drawing.Size(243, 21);
-      this.tbRua.TabIndex = 50;
-      // 
-      // label15
-      // 
-      this.label15.AutoSize = true;
-      this.label15.Location = new System.Drawing.Point(7, 321);
-      this.label15.Name = "label15";
-      this.label15.Size = new System.Drawing.Size(33, 15);
-      this.label15.TabIndex = 49;
-      this.label15.Text = "Rua";
-      // 
-      // cbCidade
-      // 
-      this.cbCidade.DisplayMember = "Nome";
-      this.cbCidade.Enabled = false;
-      this.cbCidade.FormattingEnabled = true;
-      this.cbCidade.Location = new System.Drawing.Point(74, 294);
-      this.cbCidade.Name = "cbCidade";
-      this.cbCidade.Size = new System.Drawing.Size(181, 23);
-      this.cbCidade.TabIndex = 48;
-      this.cbCidade.ValueMember = "Id";
-      // 
-      // label18
-      // 
-      this.label18.AutoSize = true;
-      this.label18.Location = new System.Drawing.Point(71, 274);
-      this.label18.Name = "label18";
-      this.label18.Size = new System.Drawing.Size(52, 15);
-      this.label18.TabIndex = 47;
-      this.label18.Text = "Cidade";
-      // 
-      // label19
-      // 
-      this.label19.AutoSize = true;
-      this.label19.Location = new System.Drawing.Point(7, 275);
-      this.label19.Name = "label19";
-      this.label19.Size = new System.Drawing.Size(25, 15);
-      this.label19.TabIndex = 45;
-      this.label19.Text = "UF";
-      // 
-      // tbUF
-      // 
-      this.tbUF.Location = new System.Drawing.Point(6, 297);
-      this.tbUF.Name = "tbUF";
-      this.tbUF.ReadOnly = true;
-      this.tbUF.Size = new System.Drawing.Size(44, 21);
-      this.tbUF.TabIndex = 56;
-      // 
-      // label21
-      // 
-      this.label21.AutoSize = true;
-      this.label21.Location = new System.Drawing.Point(6, 448);
-      this.label21.Name = "label21";
-      this.label21.Size = new System.Drawing.Size(145, 15);
-      this.label21.TabIndex = 63;
-      this.label21.Text = "Ultima alteração em: ";
-      // 
-      // label23
-      // 
-      this.label23.AutoSize = true;
-      this.label23.Location = new System.Drawing.Point(7, 415);
-      this.label23.Name = "label23";
-      this.label23.Size = new System.Drawing.Size(112, 15);
-      this.label23.TabIndex = 57;
-      this.label23.Text = "Cadastrado em: ";
-      // 
       // btnEditar
       // 
       this.btnEditar.Location = new System.Drawing.Point(134, 462);
@@ -529,39 +564,6 @@
       this.btnEditar.Text = "Editar";
       this.btnEditar.UseVisualStyleBackColor = true;
       this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-      // 
-      // btnSalvar
-      // 
-      this.btnSalvar.Location = new System.Drawing.Point(174, 36);
-      this.btnSalvar.Name = "btnSalvar";
-      this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-      this.btnSalvar.TabIndex = 66;
-      this.btnSalvar.Text = "Salvar";
-      this.btnSalvar.UseVisualStyleBackColor = true;
-      // 
-      // lblCadastradoEm
-      // 
-      this.lblCadastradoEm.AutoSize = true;
-      this.lblCadastradoEm.Location = new System.Drawing.Point(126, 415);
-      this.lblCadastradoEm.Name = "lblCadastradoEm";
-      this.lblCadastradoEm.Size = new System.Drawing.Size(0, 15);
-      this.lblCadastradoEm.TabIndex = 67;
-      // 
-      // lblAlteradoEm
-      // 
-      this.lblAlteradoEm.AutoSize = true;
-      this.lblAlteradoEm.Location = new System.Drawing.Point(157, 448);
-      this.lblAlteradoEm.Name = "lblAlteradoEm";
-      this.lblAlteradoEm.Size = new System.Drawing.Size(0, 15);
-      this.lblAlteradoEm.TabIndex = 68;
-      // 
-      // lblAtivo
-      // 
-      this.lblAtivo.AutoSize = true;
-      this.lblAtivo.Location = new System.Drawing.Point(145, 476);
-      this.lblAtivo.Name = "lblAtivo";
-      this.lblAtivo.Size = new System.Drawing.Size(0, 15);
-      this.lblAtivo.TabIndex = 69;
       // 
       // frmAltFuncionario
       // 
