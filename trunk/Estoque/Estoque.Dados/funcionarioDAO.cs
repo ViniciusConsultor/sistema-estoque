@@ -322,6 +322,18 @@ namespace Estoque.Dados
 
       #endregion
     }
+
+    public bool Update(string strConn, Funcionario funcionario)
+    {
+
+      #region Declaração
+
+      #endregion
+
+      #region Implementação
+
+      #endregion
+    }
     #endregion
 
   }
