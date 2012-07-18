@@ -95,6 +95,24 @@ namespace Estoque.Controller
         #endregion
 
       }
+
+      public bool update(string strConn, Funcionario funcio)
+      {
+
+         #region Declaração
+         funcionarioDAO func = null;
+
+         #endregion
+
+         #region Implementação
+
+         func = new funcionarioDAO();
+
+         return func.Update(strConn, funcio);
+
+         #endregion
+
+      }
       #endregion
     }
 }

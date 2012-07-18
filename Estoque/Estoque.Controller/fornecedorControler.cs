@@ -5,7 +5,17 @@ using System.Text;
 
 namespace Estoque.Controller
 {
-    public class fornecedorControler
+
+   #region Construtor
+
+   public class fornecedorControler
     {
     }
+
+   #endregion
+
+   #region Métodos
+
+
+   #endregion
 }
