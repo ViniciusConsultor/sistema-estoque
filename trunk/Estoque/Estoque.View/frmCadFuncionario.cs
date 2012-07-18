@@ -114,14 +114,7 @@ namespace Estoque.View
               usuario.Ativo = cbxAtivo.Checked;
 
               ID = funcionControl.cadastrar(strConn, funcionario, usuario);
-              if (ID > 0)
-              {
-                MessageBox.Show("Cadastrado com secesso! \n A Matricula do funcionário é: " + ID, "Sucesso");
-                btnNovo.Enabled = true;
-                desabilitaCampos();
-                this.Size = new System.Drawing.Size(459, 546);
-                tbMatricula.Text = ID.ToString();
-              }
+
             }
             else
               MessageBox.Show("Selecione o Nivel de acesso!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -132,6 +125,18 @@ namespace Estoque.View
       }
       else
         MessageBox.Show("Alguns campos são Obrigatórios!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+
+      ID = funcionControl.cadastrar(strConn, funcionario, null);
+      if (ID > 0)
+      {
+         MessageBox.Show("Cadastrado com secesso! \n A Matricula do funcionário é: " + ID, "Sucesso");
+         btnNovo.Enabled = true;
+         desabilitaCampos();
+         this.Size = new System.Drawing.Size(459, 546);
+         tbMatricula.Text = ID.ToString();
+      }
+
 
       #endregion
 

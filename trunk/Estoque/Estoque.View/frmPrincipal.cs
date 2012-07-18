@@ -61,13 +61,13 @@ namespace Estoque.View
       altFunc.Show();
     }
 
-    private void alterarToolStripMenuItem3_Click(object sender, EventArgs e)
+    private void cadastarToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      frmAltFuncionario altFunc = new frmAltFuncionario(strConn);
+       frmCadFornecedor cadForne = new frmCadFornecedor(strConn);
 
-      altFunc.MdiParent = this;
+       cadForne.MdiParent = this;
 
-      altFunc.Show();
+       cadForne.Show();
     }
   }
 }

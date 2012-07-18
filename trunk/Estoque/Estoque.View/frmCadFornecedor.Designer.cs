@@ -28,17 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // frmCadFornecedor
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(788, 565);
-            this.MinimizeBox = false;
-            this.Name = "frmCadFornecedor";
-            this.Text = "Cadastro de Fornecedores";
-            this.ResumeLayout(false);
+         this.SuspendLayout();
+         // 
+         // frmCadFornecedor
+         // 
+         this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+         this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+         this.ClientSize = new System.Drawing.Size(788, 565);
+         this.MinimizeBox = false;
+         this.Name = "frmCadFornecedor";
+         this.Text = "Cadastro de Fornecedores";
+         this.Load += new System.EventHandler(this.frmCadFornecedor_Load);
+         this.ResumeLayout(false);
 
         }
 

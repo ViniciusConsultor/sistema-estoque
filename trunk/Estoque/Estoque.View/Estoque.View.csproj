@@ -91,11 +91,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="dataBase.cs" />
-    <Compile Include="estoqueDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>estoqueDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="frmAltFuncionario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -266,26 +261,10 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="estoqueDataSet.xsc">
-      <DependentUpon>estoqueDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="estoqueDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>estoqueDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="estoqueDataSet.xss">
-      <DependentUpon>estoqueDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="estoque.sdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />

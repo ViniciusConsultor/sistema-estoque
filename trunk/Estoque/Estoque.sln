@@ -24,6 +24,7 @@ Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "Estoque.Modelagem", "Estoqu
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Imagens", "Imagens", "{31DB4164-CECE-43F9-B0DC-274F6E59A7BC}"
 	ProjectSection(SolutionItems) = preProject
+		Arquivos\Background.jpg = Arquivos\Background.jpg
 		Arquivos\Search32.png = Arquivos\Search32.png
 	EndProjectSection
 EndProject
